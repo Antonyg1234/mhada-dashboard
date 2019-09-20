@@ -1,0 +1,35 @@
+@media(max-width:1280px){
+  
+    .organizationtitle{width:280px;}
+}
+@media (min-width:768px) and (max-width: 1024px){
+
+.budget{background-image: none;flex-direction: column;}
+ .budget .title{width:100%;margin:0px;}
+.main{top: 60px;}
+header.active{padding-left:0px;}
+.main.active{padding:30px 0px 0px 90px;}
+.main{padding:30px 0px 0px 90px;width:auto;}
+.card{min-width: auto;}
+.organizationcontent {position: absolute;left: 22%;right: 0%; width: 53%;margin: auto;top: 144px;}
+.organizationtitle {width:auto;}
+.organizationtitle h2{font-size:18px;}
+.rightcontent {top: 0px;}
+.rightcontent svg{width: 280px;max-width: 100%;}
+
+
+}
+
+@media(max-width:767px){
+
+header.active{padding-left:0px;}
+.main.active {padding: 30px 0px 0px 90px}
+.main{padding:30px 0px 0px 90px;width:94%;}
+header.active{padding-left:0px;}
+.rightcontent{display:none;}
+}
+
+@media(max-width:560px){
+   .budget{background-image: none;flex-direction: column;} 
+   .budget .title{width:100%;margin:0px;}
+}
