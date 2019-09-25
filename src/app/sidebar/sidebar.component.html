@@ -1,7 +1,7 @@
 <!--sidebar start -->
 <div class="row">
-  <div class="sidebar shadow d-md-block bg-light sidebar">
-     <a href="#" id="menu-action">
+  <div class="sidebar shadow d-md-block bg-light sidebar" [ngClass]="sidebarStatus ? 'active hovered' : ''">
+     <a href="#" id="menu-action" (click)="sidebarActive()" [ngClass]="sidebarStatus ? 'active' : ''">
       <i class="fa fa-bars"></i>
     </a>
     <ul>

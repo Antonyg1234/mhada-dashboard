@@ -1,5 +1,5 @@
 <!--header start-->
-<header class="shadow">
+<header class="shadow" (sidebarEvent)="onSidebar($event)" [ngClass]="(sidebarEvent) ? 'active' : ''">
   <div class="container-fluid">
     <div class="row">
       <div class="col-md-6 col-6">
