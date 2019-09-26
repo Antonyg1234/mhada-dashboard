@@ -33,6 +33,13 @@ const routes: Routes = [
         { path: '', component: ModuleDetailComponent },
     ]
   },
+  {
+    path:'**',
+    component:CommonLayoutComponent,
+    children:[
+      { path: '', component: BoardDetailComponent },
+    ]
+  }
 ];
 
 @NgModule({
