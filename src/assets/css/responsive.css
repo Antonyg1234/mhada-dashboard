@@ -1,35 +1,98 @@
-@media(max-width:1280px){
-  
-    .organizationtitle{width:280px;}
+@media(max-width:1500px){
+  .projectlistDetails.col-md-11{flex: auto;max-width: auto;}
+   .chart-diagram #donutchart {
+    width: 330px;
+  }
+   .main{width: 90%;}
 }
 @media (min-width:768px) and (max-width: 1024px){
 
 .budget{background-image: none;flex-direction: column;}
- .budget .title{width:100%;margin:0px;}
+ .budget .title{width:100%;margin:0px;margin-bottom: 10px;
+border-bottom: 1px solid rgba(0,0,0,0.1);
+padding-bottom: 10px;}
 .main{top: 60px;}
 header.active{padding-left:0px;}
 .main.active{padding:30px 0px 0px 90px;}
 .main{padding:30px 0px 0px 90px;width:auto;}
-.card{min-width: auto;}
+.card{min-width: auto;margin-bottom:4%;}
 .organizationcontent {position: absolute;left: 22%;right: 0%; width: 53%;margin: auto;top: 144px;}
 .organizationtitle {width:auto;}
 .organizationtitle h2{font-size:18px;}
-.rightcontent {top: 0px;}
+.rightcontent {top: -25px;}
 .rightcontent svg{width: 280px;max-width: 100%;}
-
-
+.projectlistDetails.col-md-11{flex: auto;max-width: auto;}
+.applicationpagecontent .col-md-6{flex:0 0 100%;max-width: 100%;}
+h2.chart-head{font-size: 1.2rem;}
+.progress-cards .card{margin-right: 4%;width: 29%;}
+.progress-cards .board-card-list .card:nth-child(n+4) {
+    width: 45.4%;
+}
+.progress-cards .card .name{font-size: 13px;}
+.progress-cards .card .value{font-size: 30px;}
 }
 
 @media(max-width:767px){
 
 header.active{padding-left:0px;}
-.main.active {padding: 30px 0px 0px 90px}
-.main{padding:30px 0px 0px 90px;width:94%;}
+.main.active {padding: 30px 0px 0px 75px}
+.main{padding:30px 0px 0px 75px;width:97%;}
 header.active{padding-left:0px;}
+.logo img{max-width: 100%;}
+.budget {background: url('../images/triangle.png') no-repeat -138px center #fff;background-size: cover;}
+.budget .title { width: 115px;margin-right: 12px;}
 .rightcontent{display:none;}
+.progress-cards .board-card-list .card,
+.progress-cards .board-card-list .card:nth-child(1n+4) { width: 48%;margin: 0% 4% 4% 0%;z-index: -999;}
+.board-menu .menu-list{padding-left:6px;}
+.progress-cards .board-card-list .card:nth-child(2n){margin: 0% 0% 4% 0%;}
 }
 
-@media(max-width:560px){
-   .budget{background-image: none;flex-direction: column;} 
-   .budget .title{width:100%;margin:0px;}
+@media(max-width:600px){
+.main{padding:30px 0px 0px 84px;width:95%;}
+.main.active {padding: 30px 0px 0px 84px}
+.main ul.breacrumbs{flex-wrap: wrap;}
+.budget{background-image: none;flex-direction: column;padding: 17px 10px;margin-bottom:30px;} 
+.budget .title{width:100%;margin-right:0px;text-align: center;margin-bottom: 10px;border-bottom: 1px solid #EBEBEB;padding-bottom:10px;}
+.budget ul li h3{font-size: 19px;line-height:auto;}
+.projectid .departmentname{margin-left:0px;}
+#progress-chart{z-index: 3;}
+
+.progress-cards .board-card-list .card,.progress-cards .board-card-list .card:nth-child(1n+4) {width: 80%;}
+.financialcontent .left{order:2;margin-top:103px;z-index: 2;}
+.financialcontent .right{order:1;}
+.financialcontent .progress-cards .board-card-list .card, .progress-cards .board-card-list .card:nth-child(n+4){width:48%;}
+.financialcontent .board-menu{left: 32px;position: absolute;}
+.financialcontent .board-menu ul {display: flex;margin: 0px 0px 0px 0px;overflow-y: scroll; width: 98%;padding: 0px 0px 0px 6px;}
+.financialcontent .rightsection{top:94px;}
+.board-menu .menu-item.active .menu-link ,.board-menu .menu-item:hover .menu-link{font-size: 12px;padding:7px 8px;transition-duration: 0.3s;}
+.board-menu .menu-item.active, .board-menu .menu-item:hover {height: 73px;transition-duration: 0.3s; font-size: 12px;width:59px;}
+.board-menu .menu-item.active::before, .board-menu .menu-item:hover::before{transform: rotate(89deg);
+bottom: -27px;
+height: 51px;}
+.board-menu .menu-item.active{/*height: 73px;*/}
+.financialcontent .board-menu {left: 78px;top:100px;position: absolute;z-index: 1;}
+.board-menu .menu-item::before{top:auto;right:auto;}
+.board-menu::after{content:none;}
+
+.progress-cards .board-card-list .card:nth-child(2n){margin: 0% 0% 4% 0%;}
+}
+
+@media(max-width:480px){
+  .budget .title{border-bottom: 1px solid #EBEBEB;padding-bottom:10px;margin-bottom:0px;}
+  .budget ul{flex-direction: column;}
+  .main{padding:30px 0px 0px 75px;width:96%;}
+  .main.active {padding: 30px 0px 0px 75px}
+  .budget ul li{border-bottom: 1px solid #EBEBEB;padding: 10px 0px;border-right:none;}
+  .financialcontent .board-menu ul{padding: 17px 0px 0px 0px;}
+  .financialcontent .progress-cards .board-card-list .card, .progress-cards .board-card-list .card:nth-child(n+4){width:100%;}
+  .projectlistDetails h3{margin:10px 0px;}
+  .projectinnerdetails .align-items-center{flex-wrap: wrap;}
+  .projectlist .projectinnerdetails{padding:10px;}
+  .projectlistDetails.col-md-11{padding-top: 10px;padding-bottom: 10px;margin-top: 10px;border-bottom: 1px solid #EBEBEB; margin-bottom: 10px;width:80%;}
+  .progress-cards .card{margin: 2% 2%;}
+  .progress-cards .board-card-list .card, .progress-cards .board-card-list .card:nth-child(n+4) {margin: 0% 0% 2% 0%;}
+  .module{margin-left: 34px;margin-bottom: 10px;text-align: left;}
+  .board-menu::after{content:none;}
+  .budget ul li:last-child{border-bottom:none;padding-bottom:0px;}
 }

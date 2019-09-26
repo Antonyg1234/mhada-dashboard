@@ -1,30 +1,29 @@
 <!--header start-->
-<header class="shadow" (sidebarEvent)="onSidebar($event)" [ngClass]="(sidebarEvent) ? 'active' : ''">
+<header class="shadow">
   <div class="container-fluid">
     <div class="row">
-      <div class="col-md-6 col-6">
-        <div class="logo">
-            <a href="#"><img src="assets/images/logo.jpg" alt="logo"></a>
-        </div>
-      </div>
+      <div class="col-md-6 col-6 logo">
+       <a href="#"><img src="assets/images/logo.jpg" alt="logo"></a>
+       </div>
        <div class="col-md-6 col-6">
         <!--rightmenu-->
-        <div class="dropdown az-profile-menu col-md-4 pull-right no-padding">
+        <div class="dropdown az-profile-menu">
       <div class="az-header-profile ">
         <span>Namaste,</span>
             <h6>Admin User</h6>
              </div><!-- az-header-profile -->
                <div class="dropdown">
-                  <a href="" class="az-img-user"> AU</a>
+
                   <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    AU
                   </button>
                   <div class="dropdown-menu "  aria-labelledby="dropdownMenu2">
                     <div class="az-dropdown-header d-sm-none">
                         <a href="" class="az-header-arrow"><i class="icon ion-md-arrow-back"></i></a>
                     </div>
-                    <a href="" class="dropdown-item"><i class="typcn typcn-user-outline"></i> My Profile</a>
-                    <a href="" class="dropdown-item"><i class="typcn typcn-edit"></i> Edit Profile</a>
-                    <a href="page-signin.html" class="dropdown-item"><i class="typcn typcn-power-outline"></i> Sign Out</a>
+                    <a href="" class="dropdown-item"><i class="fa fa-user"></i><span>My Profile</span></a>
+                    <a href="" class="dropdown-item"><i class="fa fa-pencil-square-o"></i><span>Edit Profile</span></a>
+                    <a href="page-signin.html" class="dropdown-item"><i class="fa fa-sign-out" aria-hidden="true"></i><span>Sign Out</span></a>
                   </div>
                 </div>
               </div>
