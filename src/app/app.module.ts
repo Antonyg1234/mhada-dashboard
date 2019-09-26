@@ -10,6 +10,10 @@ import { SharedComponent } from './shared/shared.component';
 import { BreadcrumbComponent } from './content-area/breadcrumb/breadcrumb.component';
 import { ViewsComponent } from './content-area/views/views.component';
 import { BoardComponent } from './content-area/views/board/board.component';
+import { ContentAreaWrapperComponent } from './content-area-wrapper/content-area-wrapper.component';
+import { BoardDetailComponent } from './board-detail/board-detail.component';
+import { ProjectDetailComponent } from './project-detail/project-detail.component';
+import { ModuleDetailComponent } from './module-detail/module-detail.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +24,11 @@ import { BoardComponent } from './content-area/views/board/board.component';
     SharedComponent,
     BreadcrumbComponent,
     ViewsComponent,
-    BoardComponent
+    BoardComponent,
+    ContentAreaWrapperComponent,
+    BoardDetailComponent,
+    ProjectDetailComponent,
+    ModuleDetailComponent
   ],
   imports: [
     BrowserModule,
