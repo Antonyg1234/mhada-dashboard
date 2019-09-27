@@ -16,6 +16,8 @@ import { ModuleDetailComponent } from './content-area/views/module-detail/module
 import { LayoutsComponent } from './layouts/layouts.component';
 import { CommonLayoutComponent } from './layouts/common-layout/common-layout.component';
 import { FinanceDetailComponent } from './content-area/views/finance-detail/finance-detail.component';
+import { SvgComponent } from './content-area/views/svg/svg.component';
+import { DashboardDetailComponent } from './content-area/views/dashboard-detail/dashboard-detail.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +34,9 @@ import { FinanceDetailComponent } from './content-area/views/finance-detail/fina
     ModuleDetailComponent,
     LayoutsComponent,
     CommonLayoutComponent,
-    FinanceDetailComponent
+    FinanceDetailComponent,
+    SvgComponent,
+    DashboardDetailComponent
   ],
   imports: [
     BrowserModule,
