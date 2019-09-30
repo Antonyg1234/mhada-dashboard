@@ -8,175 +8,23 @@
         <app-finance-detail></app-finance-detail>
         <div class="row mt-3 d-flex board-cardlist">
           <!--board card start-->
-          <div class="col-12 col-sm-6 col-md-6 col-xl-4">
-            <div class="card board-card">
-              <a [routerLink]="['/projects']">
-                <div class="card-body">
-                  <div class="d-flex justify-content-between">
-                    <div class="title">MHADA</div>
-                    <div class="rightimg">
-                      <img src="assets/images/mhada.png" alt="mhadaicon">
+          <div *ngFor="let board of boards" class="col-12 col-sm-6 col-md-6 col-xl-4">
+              <div class="card board-card">
+                <a [routerLink]="['/projects']">
+                  <div class="card-body">
+                    <div class="d-flex justify-content-between">
+                      <div class="title">{{board.name}}</div>
+                      <div class="rightimg">
+                        <img src="assets/images/mhada.png" alt="mhadaicon">
+                      </div>
                     </div>
+                    <p class="small-text d-flex">{{board.description}}</p>
                   </div>
-                  <p class="small-text d-flex">Maharashtra Housing And Area Development Authority</p>
-                </div>
-              </a>
+                </a>
+              </div>
             </div>
-          </div>
-          <!--board card end-->
-          <!--board card start-->
-          <div class="col-12 col-sm-6 col-md-6 col-xl-4">
-            <div class="card board-card">
-              <a [routerLink]="['/projects']">
-                <div class="card-body">
-                  <div class="d-flex justify-content-between">
-                    <div class="title">MHADB</div>
-                    <div class="rightimg">
-                      <img src="assets/images/mhadbicon.png" alt="mhadaicon">
-                    </div>
-                  </div>
-                  <p class="small-text d-flex">Mumbai Housing and Area Development Board</p>
-                </div>
-              </a>
-            </div>
-          </div>
-          <!--board card end-->
-          <!--board card start-->
-          <div class="col-12 col-sm-6 col-md-6 col-xl-4">
-            <div class="card board-card">
-              <a [routerLink]="['/projects']">
-                <div class="card-body">
-                  <div class="d-flex justify-content-between">
-                    <div class="title">MBRRB</div>
-                    <div class="rightimg">
-                      <img src="assets/images/mbrrbicon.png" alt="mbrrbicon">
-                    </div>
-                  </div>
-                  <p class="small-text d-flex">Mumbai Building Repairs & Reconstruction Board</p>
-                </div>
-              </a>
-            </div>
-          </div>
-          <!--board card end-->
-          <!--board card start-->
-          <div class="col-12 col-sm-6 col-md-6 col-xl-4">
-            <div class="card board-card">
-              <a [routerLink]="['/projects']">
-                <div class="card-body">
-                  <div class="d-flex justify-content-between">
-                    <div class="title">AHADB</div>
-                    <div class="rightimg">
-                      <img src="assets/images/ahadbicon.png" alt="ahadbicon">
-                    </div>
-                  </div>
-                  <p class="small-text d-flex">Amravati Housing and Area Development Board</p>
-                </div>
-              </a>
-            </div>
-          </div>
-          <!--board card end-->
-          <!--board card start-->
-          <div class="col-12 col-sm-6 col-md-6 col-xl-4">
-            <div class="card board-card">
-              <a [routerLink]="['/projects']">
-                <div class="card-body">
-                  <div class="d-flex justify-content-between">
-                    <div class="title">MSIB</div>
-                    <div class="rightimg">
-                      <img src="assets/images/misbicon.png" alt="msibicon">
-                    </div>
-                  </div>
-                  <p class="small-text d-flex">Mumbai Slum Improvement Board</p>
-                </div>
-              </a>
-            </div>
-          </div>
-          <!--board card end-->
-          <!--board card start-->
-          <div class="col-12 col-sm-6 col-md-6 col-xl-4">
-            <div class="card board-card">
-              <a [routerLink]="['/projects']">
-                <div class="card-body">
-                  <div class="d-flex justify-content-between">
-                    <div class="title">KHADB</div>
-                    <div class="rightimg">
-                      <img src="assets/images/khadbicon.png" alt="khdabicon">
-                    </div>
-                  </div>
-                  <p class="small-text d-flex">Konkan Housing and Area Development Board</p>
-                </div>
-              </a>
-            </div>
-          </div>
-          <!--board card end-->
-          <!--board card start-->
-          <div class="col-12 col-sm-6 col-md-6 col-xl-4">
-            <div class="card board-card">
-              <a href="#">
-                <div class="card-body">
-                  <div class="d-flex justify-content-between">
-                    <div class="title">PHADB</div>
-                    <div class="rightimg">
-                      <img src="assets/images/phadicon.png" alt="phadbicon">
-                    </div>
-                  </div>
-                  <p class="small-text d-flex">Pune Housing and Area Development Board </p>
-                </div>
-              </a>
-            </div>
-          </div>
-          <!--board card end-->
-          <!--board card start-->
-          <div class="col-12 col-sm-6 col-md-6 col-xl-4">
-            <div class="card board-card">
-              <a [routerLink]="['/projects']">
-                <div class="card-body">
-                  <div class="d-flex justify-content-between">
-                    <div class="title">NHADB</div>
-                    <div class="rightimg">
-                      <img src="assets/images/nhadbicon.png" alt="nhadbicon">
-                    </div>
-                  </div>
-                  <p class="small-text d-flex">Nashik Housing and Area Development Board</p>
-                </div>
-              </a>
-            </div>
-          </div>
-          <!--board card end-->
-          <!--board card start-->
-          <div class="col-12 col-sm-6 col-md-6 col-xl-4">
-            <div class="card board-card">
-              <a [routerLink]="['/projects']">
-                <div class="card-body">
-                  <div class="d-flex justify-content-between">
-                    <div class="title">AHADB</div>
-                    <div class="rightimg">
-                      <img src="assets/images/ahadbimg.png" alt="ahadbimg">
-                    </div>
-                  </div>
-                  <p class="small-text d-flex">Aurangabad Housing and Area Development Board</p>
-                </div>
-              </a>
-            </div>
-          </div>
-          <!--board card end-->
-          <!--board card start-->
-          <div class="col-12 col-sm-6 col-md-6 col-xl-4">
-            <div class="card board-card">
-              <a [routerLink]="['/projects']">
-                <div class="card-body">
-                  <div class="d-flex justify-content-between">
-                    <div class="title">NHADB</div>
-                    <div class="rightimg">
-                      <img src="assets/images/nhadbicon-1.png" alt="nhadbicon">
-                    </div>
-                  </div>
-                  <p class="small-text d-flex">Nagpur Housing and Area Development Board</p>
-                </div>
-              </a>
-            </div>
-          </div>
-          <!--board card end-->
+            <!--board card end-->
+
         </div>
       </div>
       <!--leftcontent end-->
