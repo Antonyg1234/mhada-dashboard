@@ -1,36 +1,46 @@
 <div class="">
 <!-- Default form login -->
 
-<div class="col-md-4" style="margin:150px 0 0 150px;">
-<form #loginForm=ngForm (ngSubmit)="onSubmit()" class="text-center border border-light p-5" >
-
+<div class="col-md-6" style="margin:150px 0 0 150px;">
+  
+  <div class="">
+    <div class="card">
+      <div class="card-header bg-warning">Login Here</div>
+      <div class="card-body">
+        <form #loginForm=ngForm (ngSubmit)="onSubmit()">
+  
+          <div class="alert alert-danger" [hidden]="!error">
+            {{error}}
+          </div>
+          <div class="form-group row">
+            <label for="inputEmail3" class="col-sm-2 col-form-label">Email</label>
+            <div class="col-sm-10">
+              <input type="email" name="email" class="form-control" id="inputEmail3" placeholder="Email" [(ngModel)]="form.email" required>
+            </div>
+          </div>
+  
+          <div class="form-group row">
+            <label for="inputPassword3" class="col-sm-2 col-form-label">Password</label>
+            <div class="col-sm-10">
+              <input type="password" name="password" class="form-control" id="inputPassword3" placeholder="Password" [(ngModel)]="form.password"
+                required>
+            </div>
+          </div>
+  
+          <div class="form-group row">
+            <div class="col-sm-10 offset-2">
+  
+              <button type="submit" class="btn btn-primary float-right" [disabled]="!loginForm.valid">Sign in</button>
+  
+              
+  
+            </div>
+          </div>
        
-      
-        <!-- Email -->
-        <input type="email" name="email" id="defaultLoginFormEmail" class="form-control mb-4" placeholder="E-mail" [(ngModel)]="form.email" required>
-      
-        <!-- Password -->
-        <input type="password" name="password" id="defaultLoginFormPassword" class="form-control mb-4" placeholder="Password" [(ngModel)]="form.password" required>
-      
-        <div class="d-flex justify-content-around">
-          <div>
-            <!-- Remember me -->
-            
-          </div>
-          <div>
-            <!-- Forgot password -->
-            
-          </div>
-        </div>
-      
-        <!-- Sign in button -->
-        <button color="info" block="true" class="my-4" type="submit" [disabled]="!loginForm.valid">Sign in</button>
-      
-
-      
-      
-      </form>
-      <!-- Default form login -->
+        </form>
+      </div>
+    </div>
+  </div>
 </div>
 <app-right-layout></app-right-layout>
 </div>

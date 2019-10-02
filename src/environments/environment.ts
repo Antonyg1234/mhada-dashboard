@@ -4,7 +4,11 @@
 
 export const environment = {
   production: false,
-  apiUrl:'http://localhost/master-dashboard-mhada/public/index.php'
+  apiUrl:'http://localhost/master-dashboard-mhada/public/index.php',
+  grant_type:"password",
+  client_id: "2",
+  client_secret:"FPQE8hISq8QyJJZIfxGgEq1GSVMcJVQAbVvXgvwV",
+  scope: "*"
 };
 
 /*

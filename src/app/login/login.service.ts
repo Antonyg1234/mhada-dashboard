@@ -19,26 +19,23 @@ export interface LoginFields{
 @Injectable()
 export class LoginService {
   
-  url = environment.apiUrl+'oauth/token';
-
+  url = environment.apiUrl+'/oauth/token';
+  
   constructor(private http: HttpClient) {
     
   }
 
- login(){
-     
- }
+
+  login(data) {
+    data['grant_type'] = environment.grant_type;
+    data['client_id'] = environment.client_id;
+    data['client_secret'] = environment.client_secret;
+    data['scope'] = environment.scope;
+    data['username'] = data.email;
+
+    return this.http.post(this.url, data)
+  }
+ 
  
 
-
-
-  
-
 }
-
-
-/*
-Copyright Google LLC. All Rights Reserved.
-Use of this source code is governed by an MIT-style license that
-can be found in the LICENSE file at http://angular.io/license
-*/

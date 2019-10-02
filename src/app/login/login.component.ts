@@ -4,29 +4,36 @@ import { FormBuilder, FormGroup, Validators} from '@angular/forms';
 import { first } from 'rxjs/operators';
 import { LoginService } from './login.service';
 import {NgModule} from '@angular/core';
-
+import { environment } from '../../environments/environment';
+import { TokenService } from '../services/token.service';
+import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  styleUrls: ['./login.component.css'],
+  providers:[LoginService]
 })
 export class LoginComponent implements OnInit {
     public form ={
         email:null,
         password:null
     }
-  loginForm: FormGroup;
+    public error = null;
+    url = environment.apiUrl+'/oauth/token';
+    loginForm: FormGroup;
     loading = false;
     submitted = false;
     returnUrl: string;
-    loginservice:LoginService;
+    
     
     constructor(
         private formBuilder: FormBuilder,
         private route: ActivatedRoute,
         private router: Router,
-
+        private Token: TokenService,
+        private Auth: AuthService,
+        private loginservice:LoginService
     ) {
         // redirect to home if already logged in
         // if (this.authenticationService.currentUserValue) {
@@ -44,31 +51,31 @@ export class LoginComponent implements OnInit {
         this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
     }
 
-    // convenience getter for easy access to form fields
-    get f() { return this.loginForm.controls; }
 
-    onSubmit() {
+    onSubmit() { console.log(this.url); 
         this.submitted = true;
 
-        // reset alerts on submit
-        //this.alertService.clear();
+        this.loginservice.login(this.form).subscribe(
+            data => this.handleResponse(data),
+            error => this.handleError(error)
+          );
 
-        // stop here if form is invalid
         if (this.loginForm.invalid) {
             return;
         }
 
         this.loading = true;
-        // this.loginservice.login(this.f.username.value, this.f.password.value)
-        //     .pipe(first())
-        //     .subscribe(
-        //         data => {
-        //             this.router.navigate([this.returnUrl]);
-        //         },
-        //         error => {
-        //             //this.alertService.error(error);
-        //             this.loading = false;
-        //         });
+        
+      
     }
+    handleResponse(data) {
+        this.Token.handle(data.access_token);
+        this.Auth.changeAuthStatus(true);
+        this.router.navigateByUrl('/boards');
+      }
+    
+      handleError(error) {
+        this.error = error.error.error;
+      }
 
 }

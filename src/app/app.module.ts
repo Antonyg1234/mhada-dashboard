@@ -22,7 +22,11 @@ import { LoginComponent } from './login/login.component';
 import { RightLayoutComponent } from './right-layout/right-layout.component';
 import { FormsModule} from '@angular/forms';
 import { FormBuilder} from '@angular/forms';
+import { TokenService } from './services/token.service';
+import { AuthService } from './services/auth.service';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
 
+import { TokenInterceptor } from './token.interceptor';
 @NgModule({
   declarations: [
     AppComponent,
@@ -51,7 +55,8 @@ import { FormBuilder} from '@angular/forms';
     FormsModule
     
   ],
-  providers: [FormBuilder],
+  providers: [FormBuilder,TokenService, AuthService,
+    { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
