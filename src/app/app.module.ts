@@ -18,6 +18,10 @@ import { CommonLayoutComponent } from './layouts/common-layout/common-layout.com
 import { FinanceDetailComponent } from './content-area/views/finance-detail/finance-detail.component';
 import { SvgComponent } from './content-area/views/svg/svg.component';
 import { DashboardDetailComponent } from './content-area/views/dashboard-detail/dashboard-detail.component';
+import { LoginComponent } from './login/login.component';
+import { RightLayoutComponent } from './right-layout/right-layout.component';
+import { FormsModule} from '@angular/forms';
+import { FormBuilder} from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -36,14 +40,18 @@ import { DashboardDetailComponent } from './content-area/views/dashboard-detail/
     CommonLayoutComponent,
     FinanceDetailComponent,
     SvgComponent,
-    DashboardDetailComponent
+    DashboardDetailComponent,
+    LoginComponent,
+    RightLayoutComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
+    
   ],
-  providers: [],
+  providers: [FormBuilder],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

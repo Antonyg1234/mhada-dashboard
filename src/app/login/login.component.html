@@ -1,0 +1,36 @@
+<div class="">
+<!-- Default form login -->
+
+<div class="col-md-4" style="margin:150px 0 0 150px;">
+<form #loginForm=ngForm (ngSubmit)="onSubmit()" class="text-center border border-light p-5" >
+
+       
+      
+        <!-- Email -->
+        <input type="email" name="email" id="defaultLoginFormEmail" class="form-control mb-4" placeholder="E-mail" [(ngModel)]="form.email" required>
+      
+        <!-- Password -->
+        <input type="password" name="password" id="defaultLoginFormPassword" class="form-control mb-4" placeholder="Password" [(ngModel)]="form.password" required>
+      
+        <div class="d-flex justify-content-around">
+          <div>
+            <!-- Remember me -->
+            
+          </div>
+          <div>
+            <!-- Forgot password -->
+            
+          </div>
+        </div>
+      
+        <!-- Sign in button -->
+        <button color="info" block="true" class="my-4" type="submit" [disabled]="!loginForm.valid">Sign in</button>
+      
+
+      
+      
+      </form>
+      <!-- Default form login -->
+</div>
+<app-right-layout></app-right-layout>
+</div>
