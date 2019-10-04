@@ -6,7 +6,7 @@ import { ModuleDetailComponent } from './content-area/views/module-detail/module
 import { DashboardDetailComponent } from './content-area/views/dashboard-detail/dashboard-detail.component';
 import { LoginComponent } from './login/login.component';
 import { CommonLayoutComponent } from './layouts/common-layout/common-layout.component';
-
+import {AuthGuard} from './guards/AuthGuard';
 const routes: Routes = [
   {
     path: '',
@@ -16,6 +16,7 @@ const routes: Routes = [
   {
     path:'boards',
     component:CommonLayoutComponent,
+    canActivate: [AuthGuard],
     children: [
          { path: '', component: BoardDetailComponent },
     ]
@@ -59,6 +60,7 @@ const routes: Routes = [
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
+  providers:[AuthGuard]
 })
 export class AppRoutingModule { }
