@@ -4,6 +4,7 @@ import { HttpHeaders } from '@angular/common/http';
 
 import { Observable } from 'rxjs';
 //import { catchError } from 'rxjs/operators';
+import { environment } from '../../../../environments/environment';
 
 const httpOptions = {
   headers: new HttpHeaders({
@@ -19,7 +20,7 @@ export interface BoardDetail{
 @Injectable()
 export class BoardDetailService {
   
-  url = 'http://localhost/master-dashboard-mhada/public/index.php/api/boards';
+  url = environment.apiUrl+'/api/boards';
 
   constructor(private http: HttpClient) {
     

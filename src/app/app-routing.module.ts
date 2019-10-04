@@ -28,7 +28,7 @@ const routes: Routes = [
     ]
   },
   {
-    path:'projects',
+    path:'projects/{board_id}',
     component:CommonLayoutComponent,
     children: [
         { path: '', component: ProjectDetailComponent },

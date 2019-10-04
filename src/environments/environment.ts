@@ -4,10 +4,10 @@
 
 export const environment = {
   production: false,
-  apiUrl:'http://localhost/master-dashboard-mhada/public/index.php',
+  apiUrl:'http://127.0.0.1:8000',
   grant_type:"password",
   client_id: "2",
-  client_secret:"FPQE8hISq8QyJJZIfxGgEq1GSVMcJVQAbVvXgvwV",
+  client_secret:"vLGdixjn3pvdhnJsr4vOCikZoDMk8ceLyeq70hAB",
   scope: "*"
 };
 

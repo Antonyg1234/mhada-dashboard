@@ -10,7 +10,7 @@
           <!--board card start-->
           <div *ngFor="let board of boards" class="col-12 col-sm-6 col-md-6 col-xl-4">
               <div class="card board-card">
-                <a [routerLink]="['/projects']">
+                <a [routerLink]="['/projects',board.id]">
                   <div class="card-body">
                     <div class="d-flex justify-content-between">
                       <div class="title">{{board.name}}</div>
