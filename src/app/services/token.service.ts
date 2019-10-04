@@ -45,6 +45,7 @@ export class TokenService {
   }
 
   loggedIn() {
-    return this.isValid();
+    //return this.isValid();
+    return localStorage.getItem('token') != null;
   }
 }

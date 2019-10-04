@@ -29,15 +29,17 @@ const routes: Routes = [
     ]
   },
   {
-    path:'projects/{board_id}',
+    path:'projects/:board_id',
     component:CommonLayoutComponent,
+    canActivate: [AuthGuard],
     children: [
         { path: '', component: ProjectDetailComponent },
     ]
   },
   {
-    path:'modules',
+    path:'modules/:project_id',
     component:CommonLayoutComponent,
+    canActivate: [AuthGuard],
     children: [
         { path: '', component: ModuleDetailComponent },
     ]
