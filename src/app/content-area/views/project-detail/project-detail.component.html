@@ -10,8 +10,8 @@
         <!--projectlist start-->
         <div class="row mt-3 projectlist">
           <!--projectinnerdetails start-->
-          <div class="col-md-12">
-            <a [routerLink]="['/modules']">
+          <div *ngFor="let project of projects" class="col-md-12">
+            <a [routerLink]="['/modules',project.id]">
               <div class="projectinnerdetails">
                 <div class="d-flex col-md-12 align-items-center p-0">
                   <div class="form-check">
@@ -23,10 +23,9 @@
                   <div class="projectlistDetails col-md-11">
                     <div class="projectid">
                       <span class="projectidtxt">#ProjectID</span>
-                      <span class="departmentname montecarlobg">DEPARTMENT NAME</span>
+                      <span class="departmentname montecarlobg">{{project.name}}</span>
                     </div>
-                    <h3>MBD - Lorem ipsum</h3>
-                    <p>Lorem Ipsum Is Simply Dummy Text Of The Printing And Typesetting Industry. Lorem Ipsum….</p>
+                    {{project.description}}
                   </div>
                   <div class="module">
                     <span class="modulenumber">06</span>
