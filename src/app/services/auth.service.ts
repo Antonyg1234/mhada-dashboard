@@ -10,6 +10,10 @@ export class AuthService {
     this.loggedIn.next(value);
   }
 
+  isLoggedIn(){
+    return this.authStatus;
+  }
+
   constructor(private Token: TokenService) { }
 
 }
