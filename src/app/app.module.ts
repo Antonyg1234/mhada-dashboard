@@ -19,6 +19,8 @@ import { FinanceDetailComponent } from './content-area/views/finance-detail/fina
 import { SvgComponent } from './content-area/views/svg/svg.component';
 import { DashboardDetailComponent } from './content-area/views/dashboard-detail/dashboard-detail.component';
 
+import { HttpClientModule } from '@angular/common/http';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -40,7 +42,8 @@ import { DashboardDetailComponent } from './content-area/views/dashboard-detail/
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
