@@ -13,7 +13,6 @@ export class ProjectDetailComponent implements OnInit {
 
   ngOnInit() {
     let param1 = this.route.snapshot.paramMap.get("board_id");
-    console.log(param1);
     this.getList(param1);
   }
 

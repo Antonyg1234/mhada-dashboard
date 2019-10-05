@@ -3,8 +3,8 @@ import { Injectable } from '@angular/core';
 @Injectable()
 export class TokenService {
   private iss = {
-    login: 'http://localhost:8001/api/login',
-    signup: 'http://localhost:8001/api/signup'
+    login: 'http://127.0.0.1:9898/api/login',
+    signup: 'http://127.0.0.1:9898/api/signup'
   };
 
   constructor() { }
