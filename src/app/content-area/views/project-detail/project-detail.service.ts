@@ -47,7 +47,7 @@ export class ProjectDetailService {
 
   getDashboardList(dashboard): Observable<DashboardDetail[]>{
     let url=dashboard;
-    return this.http.get<DashboardDetail[]>(this.dashboard_url+'/'+url).pipe();
+    return this.http.post<DashboardDetail[]>(this.dashboard_url,{url}).pipe();
   }
 
 

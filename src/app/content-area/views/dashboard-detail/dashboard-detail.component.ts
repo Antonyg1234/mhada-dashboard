@@ -11,18 +11,20 @@ import { DashboardDetail, ProjectDetailService } from '../project-detail/project
 export class DashboardDetailComponent implements OnInit {
   dashboard:DashboardDetail[];
   public dashboard_url;
+  public Object = Object;
+
   constructor(private router: Router,private route: ActivatedRoute,private service:ProjectDetailService) {
     const naviation = this.router.getCurrentNavigation();
     this.dashboard_url=naviation.extras.state;
    }
 
   ngOnInit() {
-   // this.getDashboardList(this.dashboard_url);
+    this.getDashboardList(this.dashboard_url);
   }
 
   getDashboardList(url): void {
     this.service.getDashboardList(url)
-      .subscribe(dashboard => (console.log(dashboard['data'])));
+      .subscribe(dashboard => this.dashboard=dashboard['data']);
   }
 
 }

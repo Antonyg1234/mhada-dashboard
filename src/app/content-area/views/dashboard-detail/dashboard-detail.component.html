@@ -9,7 +9,15 @@
           <!-- leftcontent -->
           <!-- <div class="progress-cards"> -->
           <ul class="board-card-list">
-            <li class="card">
+              
+            <li *ngFor="let dash of dashboard" class="card">
+              <span class="value newline">
+                
+                {{dash['count']}}
+              </span>
+              <h6 class="name">{{dash['title']}}</h6>
+            </li>
+            <!-- <li class="card">
               <span class="value newline">
                 133
               </span>
@@ -62,13 +70,7 @@
                 133
               </span>
               <h6 class="name">Total Number of <span class="newline">Applications</span></h6>
-            </li>
-            <li class="card">
-              <span class="value newline">
-                133
-              </span>
-              <h6 class="name">Total Number of <span class="newline">Applications</span></h6>
-            </li>
+            </li> -->
           </ul>
           <!-- </div> -->
         </div>
@@ -80,7 +82,7 @@
         <!-- rightsection -->
 
         <div class="progress-chart">
-          <h2 class="chart-head">lorem ipsum</h2>
+          <h2 class="chart-head"></h2>
           <div class="chart-diagram">
 
             <div id="chart_wrap">
@@ -92,9 +94,9 @@
         </div>
       </div>
       <!--rightcontent end-->
-      <div class="board-menu col-md-1 p-0">
-        <ul class="menu-list">
-          <li class="menu-list-item">
+     <!-- <div class="board-menu col-md-1 p-0">
+        <ul class="menu-list">-->
+          <!-- <li class="menu-list-item">
             <a href="#" class="menu-item active">
               <span class="menu-link">01</span>
             </a>
@@ -123,7 +125,7 @@
             <a href="#" class="menu-item">
               <span class="menu-link">06</span>
             </a>
-          </li>
+          </li> -->
           <!--                <li class="menu-list-item">
               <a href="#" class="menu-item ">
                 <span class="menu-link">01</span>
@@ -184,8 +186,8 @@
                 <span class="menu-link">06</span>
               </a>
             </li> -->
-        </ul>
-      </div>
+      <!---  </ul>
+      </div> -->
     </div>
   </div>
 </div>
