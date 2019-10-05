@@ -1,17 +1,19 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import {Router} from '@angular/router';
 import { BoardDetail, BoardDetailService } from './../views/board-detail/board-detail.service';
+import { PersistanceService } from './../../services/persistanceService.service';
 
 @Component({
   selector: 'app-sidebar',
   templateUrl: './sidebar.component.html',
-  styleUrls: ['./sidebar.component.css']
+  styleUrls: ['./sidebar.component.css'],
+  providers:[PersistanceService]
 })
 export class SidebarComponent implements OnInit {
-  sidebarStatus: boolean = false;
-  boardsnav:BoardDetail[];
+  public sidebarStatus: boolean = false;
+  public boardsnav:BoardDetail[]  =  [];
 
-  constructor(private service:BoardDetailService) { }
+  constructor(private service:BoardDetailService, private persister: PersistanceService) { }
 
   @Output() sidebarEvent = new EventEmitter();
 
@@ -23,12 +25,16 @@ export class SidebarComponent implements OnInit {
 
 
   ngOnInit() {
+    console.log(this.boardsnav);
+    console.log(this.sidebarStatus);
     this.getList();
   }
 
   getList(): void {
+    let that = this;
     this.service.getList()
-      .subscribe(boards => (this.boardsnav = boards['data']));
+      .subscribe(boardsnavdata => (that.persister.set('boardsData', boardsnavdata['data'])
+      ));
 
   }
 
