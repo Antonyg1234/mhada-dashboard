@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
+import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './content-area/header/header.component';
@@ -18,9 +18,15 @@ import { CommonLayoutComponent } from './layouts/common-layout/common-layout.com
 import { FinanceDetailComponent } from './content-area/views/finance-detail/finance-detail.component';
 import { SvgComponent } from './content-area/views/svg/svg.component';
 import { DashboardDetailComponent } from './content-area/views/dashboard-detail/dashboard-detail.component';
+import { LoginComponent } from './login/login.component';
+import { RightLayoutComponent } from './right-layout/right-layout.component';
+import { FormsModule} from '@angular/forms';
+import { FormBuilder} from '@angular/forms';
+import { TokenService } from './services/token.service';
+import { AuthService } from './services/auth.service';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
 
-import { HttpClientModule } from '@angular/common/http';
-
+import { TokenInterceptor } from './token.interceptor';
 @NgModule({
   declarations: [
     AppComponent,
@@ -38,14 +44,19 @@ import { HttpClientModule } from '@angular/common/http';
     CommonLayoutComponent,
     FinanceDetailComponent,
     SvgComponent,
-    DashboardDetailComponent
+    DashboardDetailComponent,
+    LoginComponent,
+    RightLayoutComponent
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     AppRoutingModule,
-    HttpClientModule
+    FormsModule
+
   ],
-  providers: [],
+  providers: [FormBuilder,TokenService, AuthService,
+    { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
