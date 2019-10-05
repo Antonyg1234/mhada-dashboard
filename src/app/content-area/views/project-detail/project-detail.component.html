@@ -11,7 +11,7 @@
         <div class="row mt-3 projectlist">
           <!--projectinnerdetails start-->
           <div *ngFor="let project of projects" class="col-md-12">
-            <a [routerLink]="['/modules',project.id]">
+            <a  [routerLink]="project.has_modules?['/modules',project.id]:['/dashboard']">
               <div class="projectinnerdetails">
                 <div class="d-flex col-md-12 align-items-center p-0">
                   <div class="form-check">
@@ -28,7 +28,7 @@
                     {{project.description}}
                   </div>
                   <div class="module">
-                    <span class="modulenumber">06</span>
+                    <span class="modulenumber">{{project.modules_count}}</span>
                     <h4>Modules</h4>
                   </div>
                 </div>
@@ -37,7 +37,7 @@
           </div>
           <!--projectlist end-->
           <!--projectinnerdetails start-->
-          <div class="col-md-12">
+          <!-- <div class="col-md-12">
             <a [routerLink]="['/modules']">
               <div class="projectinnerdetails">
                 <div class="d-flex col-md-12 align-items-center p-0">
@@ -62,10 +62,10 @@
                 </div>
               </div>
             </a>
-          </div>
+          </div> -->
           <!--projectlist end-->
           <!--projectinnerdetails start-->
-          <div class="col-md-12">
+          <!-- <div class="col-md-12">
             <a [routerLink]="['/modules']">
               <div class="projectinnerdetails">
                 <div class="d-flex col-md-12 align-items-center p-0">
@@ -90,10 +90,10 @@
                 </div>
               </div>
             </a>
-          </div>
+          </div> -->
           <!--projectlist end-->
           <!--projectinnerdetails start-->
-          <div class="col-md-12">
+          <!-- <div class="col-md-12">
             <a [routerLink]="['/modules']">
               <div class="projectinnerdetails">
                 <div class="d-flex col-md-12 align-items-center p-0">
@@ -118,7 +118,7 @@
                 </div>
               </div>
             </a>
-          </div>
+          </div> -->
           <!--projectlist end-->
         </div>
       </div>

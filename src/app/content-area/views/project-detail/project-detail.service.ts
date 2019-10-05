@@ -17,10 +17,19 @@ export interface ProjectDetail{
 
 }
 
+export interface ModuleDetail{
+
+}
+
+export interface DashboardDetail{
+  
+}
 @Injectable()
 export class ProjectDetailService {
   
   url = environment.apiUrl+'/api/projects';
+  module_url = environment.apiUrl+'/api/modules';
+  dashboard_url = environment.apiUrl+'/api/get_dashboard_detail';
 
   constructor(private http: HttpClient) {
     
@@ -32,6 +41,14 @@ export class ProjectDetailService {
       .pipe();
   }
 
+  getModuleList(project_id): Observable<ModuleDetail[]>{
+    return this.http.get<ModuleDetail[]>(this.module_url+'/'+project_id).pipe();
+  }
+
+  getDashboardList(dashboard): Observable<DashboardDetail[]>{
+    let url=dashboard;
+    return this.http.get<DashboardDetail[]>(this.dashboard_url+'/'+url).pipe();
+  }
 
 
   /** PUT: update the hero on the server. Returns the updated hero upon success. */
