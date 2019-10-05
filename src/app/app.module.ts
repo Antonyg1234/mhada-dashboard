@@ -24,9 +24,11 @@ import { FormsModule} from '@angular/forms';
 import { FormBuilder} from '@angular/forms';
 import { TokenService } from './services/token.service';
 import { AuthService } from './services/auth.service';
+import { BoardDetailService } from './../app/content-area/views/board-detail/board-detail.service';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { TokenInterceptor } from './token.interceptor';
+import { FrontLayoutComponent } from './layouts/front-layout/front-layout.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -46,7 +48,8 @@ import { TokenInterceptor } from './token.interceptor';
     SvgComponent,
     DashboardDetailComponent,
     LoginComponent,
-    RightLayoutComponent
+    RightLayoutComponent,
+    FrontLayoutComponent
   ],
   imports: [
     BrowserModule,
@@ -55,7 +58,7 @@ import { TokenInterceptor } from './token.interceptor';
     FormsModule
 
   ],
-  providers: [FormBuilder,TokenService, AuthService,
+  providers: [FormBuilder,TokenService, AuthService, BoardDetailService,
     { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true }],
   bootstrap: [AppComponent]
 })

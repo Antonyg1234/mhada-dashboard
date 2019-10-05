@@ -6,6 +6,7 @@ import { ModuleDetailComponent } from './content-area/views/module-detail/module
 import { DashboardDetailComponent } from './content-area/views/dashboard-detail/dashboard-detail.component';
 import { LoginComponent } from './login/login.component';
 import { CommonLayoutComponent } from './layouts/common-layout/common-layout.component';
+import { FrontLayoutComponent } from './layouts/front-layout/front-layout.component';
 import {AuthGuard} from './guards/AuthGuard';
 const routes: Routes = [
   {
@@ -23,7 +24,7 @@ const routes: Routes = [
   },
   {
     path:'login',
-    component:CommonLayoutComponent,
+    component:FrontLayoutComponent,
     children: [
          { path: '', component: LoginComponent },
     ]

@@ -1,5 +1,6 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import {Router} from '@angular/router';
+import { BoardDetail, BoardDetailService } from './../views/board-detail/board-detail.service';
 
 @Component({
   selector: 'app-sidebar',
@@ -8,7 +9,10 @@ import {Router} from '@angular/router';
 })
 export class SidebarComponent implements OnInit {
   sidebarStatus: boolean = false;
-  constructor() { }
+  boardsnav:BoardDetail[];
+
+  constructor(private service:BoardDetailService) { }
+
   @Output() sidebarEvent = new EventEmitter();
 
   sidebarActive(){
@@ -17,7 +21,15 @@ export class SidebarComponent implements OnInit {
     console.log('acccccccc');
   }
 
+
   ngOnInit() {
+    this.getList();
+  }
+
+  getList(): void {
+    this.service.getList()
+      .subscribe(boards => (this.boardsnav = boards['data']));
+
   }
 
 }

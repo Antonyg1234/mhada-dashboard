@@ -25,20 +25,21 @@ export class LoginComponent implements OnInit {
     loading = false;
     submitted = false;
     returnUrl: string;
-    
-    
+
+
     constructor(
         private formBuilder: FormBuilder,
         private route: ActivatedRoute,
         private router: Router,
         private Token: TokenService,
         private Auth: AuthService,
-        private loginservice:LoginService
+        private loginservice:LoginService,
+        private authService: AuthService
     ) {
-        // redirect to home if already logged in
-        // if (this.authenticationService.currentUserValue) {
-        //     this.router.navigate(['/']);
-        // }
+        //redirect to home if already logged in
+        if (Token.loggedIn()) {
+            this.router.navigate(['/boards']);
+        }
     }
 
     ngOnInit() {
@@ -52,7 +53,7 @@ export class LoginComponent implements OnInit {
     }
 
 
-    onSubmit() { console.log(this.url); 
+    onSubmit() { console.log(this.url);
         this.submitted = true;
 
         this.loginservice.login(this.form).subscribe(
@@ -65,8 +66,8 @@ export class LoginComponent implements OnInit {
         }
 
         this.loading = true;
-        
-      
+
+
     }
     handleResponse(data) {
         this.Token.handle(data.access_token);
@@ -74,7 +75,7 @@ export class LoginComponent implements OnInit {
         console.log('test');
         this.router.navigateByUrl('/boards');
       }
-    
+
       handleError(error) {
         this.error = error.error.error;
       }

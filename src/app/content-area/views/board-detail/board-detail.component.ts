@@ -20,6 +20,7 @@ export class BoardDetailComponent implements OnInit {
   getList(): void {
     this.service.getList()
       .subscribe(boards => (this.boards = boards['data']));
+
   }
 
 

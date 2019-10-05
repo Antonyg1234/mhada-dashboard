@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from "@angular/router";
+import { TokenService } from '../../services/token.service';
 
 @Component({
   selector: 'app-header',
@@ -6,12 +8,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
-  sidebarEvent : boolean = false;
-  constructor() { }
 
-  onSidebar(sidebar:boolean){
-    console.log('event emitterd');
-      this.sidebarEvent = sidebar;
+  constructor(private Token: TokenService, private router: Router) { }
+
+  loggout(){
+    this.Token.remove();
+    this.router.navigate(['/login']);
   }
 
   ngOnInit() {
