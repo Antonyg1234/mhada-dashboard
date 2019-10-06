@@ -2,19 +2,37 @@ import { Injectable } from '@angular/core';
 
 @Injectable()
 export class TokenService {
-  private iss = {
-    login: 'http://127.0.0.1:8050/api/login',
-    signup: 'http://127.0.0.1:8050/api/signup'
+	private loginStateChange: () => void;
+	private loginStateChangeForHeader: () => void;
+
+	private iss = {
+    login: 'http://127.0.0.1:8000/api/login',
+    signup: 'http://127.0.0.1:8000/api/signup'
   };
 
   constructor() { }
 
+	onChangeHappended(fn: () => void) {
+		if(typeof this.loginStateChange   ==  "undefined" ) {
+			this.loginStateChange = fn;
+		}
+	}
+	onChangeHappendedForHeader(fn: () => void) {
+		if(typeof this.loginStateChangeForHeader   ==  "undefined" ) {
+			this.loginStateChangeForHeader = fn;
+		}
+	}
+
   handle(token) {
     this.set(token);
+	this.loginStateChange();
+	this.loginStateChangeForHeader();
   }
 
   set(token) {
     localStorage.setItem('token', token);
+    this.loginStateChange();
+    this.loginStateChangeForHeader();
   }
   get() {
     return localStorage.getItem('token');
@@ -22,6 +40,8 @@ export class TokenService {
 
   remove() {
     localStorage.removeItem('token');
+	  this.loginStateChange();
+	  this.loginStateChangeForHeader();
   }
 
   isValid() {

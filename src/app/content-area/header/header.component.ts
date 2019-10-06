@@ -8,6 +8,7 @@ import { TokenService } from '../../services/token.service';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
+	public isLoggedIn: boolean = false;
 
   constructor(private Token: TokenService, private router: Router) { }
 
@@ -17,6 +18,11 @@ export class HeaderComponent implements OnInit {
   }
 
   ngOnInit() {
+	  this.isLoggedIn   =   this.Token.get() ? true : false;
+	  this.Token.onChangeHappendedForHeader(this.setLoginStatus.bind(this));
   }
 
+	setLoginStatus(): void {
+		this.isLoggedIn  =  this.Token.get() ? true : false;
+	}
 }

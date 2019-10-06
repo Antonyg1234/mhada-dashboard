@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
+import { RouterModule } from '@angular/router';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './content-area/header/header.component';
@@ -29,6 +30,8 @@ import { HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { TokenInterceptor } from './token.interceptor';
 import { FrontLayoutComponent } from './layouts/front-layout/front-layout.component';
+import { PersistanceService } from './services/persistanceService.service';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -55,10 +58,10 @@ import { FrontLayoutComponent } from './layouts/front-layout/front-layout.compon
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
 
   ],
-  providers: [FormBuilder,TokenService, AuthService, BoardDetailService,
+  providers: [FormBuilder, TokenService, AuthService, BoardDetailService, PersistanceService,
     { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true }],
   bootstrap: [AppComponent]
 })

@@ -5,7 +5,7 @@
       <div class="col-md-6 col-6 logo">
        <a [routerLink] = "['/boards']"><img src="assets/images/logo.jpg" alt="logo"></a>
        </div>
-       <div class="col-md-6 col-6">
+       <div class="col-md-6 col-6" *ngIf="isLoggedIn">
         <!--rightmenu-->
         <div class="dropdown az-profile-menu">
       <div class="az-header-profile ">

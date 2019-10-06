@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { BoardDetail, BoardDetailService } from './board-detail.service';
-
+import { PersistanceService } from './../../../services/persistanceService.service';
 
 @Component({
   selector: 'app-board-detail',
@@ -11,19 +11,19 @@ import { BoardDetail, BoardDetailService } from './board-detail.service';
 export class BoardDetailComponent implements OnInit {
   boards:BoardDetail[];
 
-  constructor(private service:BoardDetailService) { }
+  constructor(private service:BoardDetailService, private persister: PersistanceService) { }
 
   ngOnInit() {
-    this.getList();
+	  this.persister.set('selectedBoard',0);
+	  this.getList();
   }
 
   getList(): void {
     this.service.getList()
-      .subscribe(boards => (
-        this.boards = boards['data']
-      ));
-
+	    .subscribe(boards => {
+		    this.persister.set('boardsData', boards['data']);
+		    this.boards = boards['data'];
+	    });
   }
-
 
 }
