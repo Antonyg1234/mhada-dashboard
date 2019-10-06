@@ -12,7 +12,7 @@ export const environment = {
   //client_secret:"vLGdixjn3pvdhnJsr4vOCikZoDMk8ceLyeq70hAB",
   //client_secret:"FPQE8hISq8QyJJZIfxGgEq1GSVMcJVQAbVvXgvwV",
   //Antony
-  client_secret:"cRpgDhHlOn7KATQs2dhqKly8Mz1a2R8XqMyQq3Ta",
+  client_secret:"vLGdixjn3pvdhnJsr4vOCikZoDMk8ceLyeq70hAB",
   scope: "*"
 };
 
