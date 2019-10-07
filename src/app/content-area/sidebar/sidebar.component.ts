@@ -27,7 +27,6 @@ export class SidebarComponent implements OnInit {
   }
 
   ngOnInit() {
-  	console.log(this.Token.get());
 	  this.isLoggedIn   =   this.Token.get() ? true : false;
 	  this.persister.onBoardDataSetHappended(this.getList.bind(this));
 	  this.persister.onBoardChangeHappended(this.setActiveBoard.bind(this));
@@ -37,7 +36,6 @@ export class SidebarComponent implements OnInit {
 	  this.boardsnav    =   (data) ? data : [];
 	  let selectedBoard =   this.persister.get('selectedBoard');
 	  this.activeBoardId  =  selectedBoard?selectedBoard:0;
-	    //    this.getList();
   }
 
   getList(): void {

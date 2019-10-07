@@ -12,12 +12,14 @@ import { PersistanceService } from './../../../services/persistanceService.servi
 
 export class ProjectDetailComponent implements OnInit {
   projects:ProjectDetail[];
+  selected_board_id:number=0;
   constructor(private persister: PersistanceService, private route: ActivatedRoute,private service: ProjectDetailService) { }
 
   ngOnInit() {
       let board_id = this.route.snapshot.paramMap.get("board_id");
       this.persister.set('selectedBoard',board_id);
 	  this.getList(board_id);
+      this.selected_board_id    =     board_id;
   }
 
   getList(board_id): void {
