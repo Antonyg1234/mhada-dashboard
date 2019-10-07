@@ -18,8 +18,8 @@ export class ProjectDetailComponent implements OnInit {
   ngOnInit() {
       let board_id = this.route.snapshot.paramMap.get("board_id");
       this.persister.set('selectedBoard',board_id);
-	  this.getList(board_id);
-      this.selected_board_id    =     board_id;
+	    this.getList(board_id);
+      this.selected_board_id  =  parseInt(board_id);
   }
 
   getList(board_id): void {
