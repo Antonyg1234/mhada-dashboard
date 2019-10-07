@@ -18,8 +18,8 @@ export class ModuleDetailComponent implements OnInit {
     let param1 = this.route.snapshot.paramMap.get("project_id");
     console.log(param1)
     this.getModulesList(param1);
-    this.selected_board=this.persister.get('boardsData').find(x=>x.id==this.persister.get('selectedBoard'))
-    console.log(this.selected_board)
+    this.selected_board=this.persister.get('boardsData').find((x: { id: any; }) => x.id==this.persister.get('selectedBoard'))
+    //console.log(this.selected_board)
 
   }
 

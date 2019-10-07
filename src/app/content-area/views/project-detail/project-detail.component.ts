@@ -13,6 +13,7 @@ import { PersistanceService } from './../../../services/persistanceService.servi
 export class ProjectDetailComponent implements OnInit {
   projects:ProjectDetail[];
   selected_board_id:number=0;
+  selected_board:any;
   constructor(private persister: PersistanceService, private route: ActivatedRoute, private service: ProjectDetailService) { }
 
   ngOnInit() {
@@ -22,7 +23,9 @@ export class ProjectDetailComponent implements OnInit {
 		  that.persister.set('selectedBoard',board_id);
 		  that.getList(board_id);
 		  that.selected_board_id    =     parseInt(board_id);
-	  });
+    });
+    this.selected_board=this.persister.get('boardsData').find(x=>x.id==this.persister.get('selectedBoard'))
+    //console.log(this.selected_board.large_icon)
   }
 
   getList(board_id): void {
