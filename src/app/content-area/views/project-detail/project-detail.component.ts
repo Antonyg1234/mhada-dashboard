@@ -20,6 +20,7 @@ export class ProjectDetailComponent implements OnInit {
       this.persister.set('selectedBoard',board_id);
 	    this.getList(board_id);
       this.selected_board_id  =  parseInt(board_id);
+      console.log('selected board',this.persister.get('selectedBoard'))
   }
 
   getList(board_id): void {

@@ -133,8 +133,8 @@
           <img src="assets/images/mumbaiboardicon.png" alt="">
         </div>
         <div class="organizationtitle">
-          <div class="digits">{{ (selected_board_id == 1 || selected_board_id == 2 )? 1 : (selected_board_id == 3 ? 2 :0) }}</div>
-
+          <!-- <div class="digits">{{ (selected_board_id == 1 || selected_board_id == 2 )? 1 : (selected_board_id == 3 ? 2 :0) }}</div> -->
+          <div class="digits"> {{projects!==undefined?projects.length:''}}</div>
           <h2 *ngIf="selected_board_id == 1">Project Of Authority </h2>
           <h2 *ngIf="selected_board_id == 2">Projects Of MHADA - Mumbai Board </h2>
           <h2 *ngIf="selected_board_id == 3">Projects Of MHADA - MBRR Board </h2>
