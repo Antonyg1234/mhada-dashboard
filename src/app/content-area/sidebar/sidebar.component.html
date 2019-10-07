@@ -10,8 +10,8 @@
           <!--activeBoardId{{activeBoardId}}-->
         <li *ngFor="let board of boardsnav" >
             <!--[routerLink]="['/projects/',board.id]"-->
-            <a href='/projects/{{board.id}}' [ngClass]="(board.id==activeBoardId)?'active':''">
-            <!-- <a [routerLink]="['/projects/',board.id]" [ngClass]="(board.id==activeBoardId)?'active':''"> -->
+            <!--<a href='/projects/{{board.id}}' [ngClass]="(board.id==activeBoardId)?'active':''">-->
+             <a [routerLink]="['/projects/',board.id]" [ngClass]="(board.id==activeBoardId)?'active':''">
                 <img style="margin-left: 7px;" width="40px" height="30px" src="{{ board.icon_url }}"><span></span>
             </a>
         </li>
