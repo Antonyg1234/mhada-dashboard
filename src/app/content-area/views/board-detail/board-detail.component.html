@@ -13,7 +13,7 @@
                 <a [routerLink]="['/projects',board.id]">
                   <div class="card-body">
                     <div class="d-flex justify-content-between">
-                      <div class="title">{{board.name}}</div>
+                      <div class="title">{{board.name | slice:0:5}}</div>
                       <div class="rightimg">
                         <img src="{{board.icon_url}}" alt="mhadaicon">
                       </div>
