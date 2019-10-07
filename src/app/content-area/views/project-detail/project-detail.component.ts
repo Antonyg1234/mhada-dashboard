@@ -22,9 +22,10 @@ export class ProjectDetailComponent implements OnInit {
 		  let board_id = params.get("board_id");
 		  that.persister.set('selectedBoard',board_id);
 		  that.getList(board_id);
-		  that.selected_board_id    =     parseInt(board_id);
+      that.selected_board_id    =     parseInt(board_id);
+      this.selected_board=this.persister.get('boardsData').find(x=>x.id==this.persister.get('selectedBoard'));
     });
-    this.selected_board=this.persister.get('boardsData').find(x=>x.id==this.persister.get('selectedBoard'))
+    
     //console.log(this.selected_board.large_icon)
   }
 
