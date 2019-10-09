@@ -11,21 +11,22 @@ export class BreadcrumbComponent implements OnInit {
   public href: string = "";
   public dash_name: string = "";
   public board_id: number;
-
+  public selected_board:string;
   public page_type:string = "";
-  constructor(private router: Router,private persistanceService:PersistanceService) { }
+  constructor(private persister: PersistanceService, private router: Router,private persistanceService:PersistanceService) { }
 
   ngOnInit() {
     this.href = this.router.url;
+    this.selected_board=this.persister.get('boardsData').find(x=>x.id==this.persister.get('selectedBoard'));
 
     if(this.href == '/boards'){
       this.dash_name = 'Boards';
       this.page_type = 'boards';
     }else if(this.href.includes('/projects')){
-      this.dash_name = 'Projects';
+      this.dash_name = 'Projects Of '+this.selected_board['description'];
       this.page_type = 'projects';
     }else if(this.href.includes('/modules')){
-      this.dash_name = 'Modules';
+      this.dash_name = 'Modules Of '+this.selected_board['description'];
       this.page_type = 'modules';
       this.board_id = this.persistanceService.get('selectedBoard');
     }else if(this.href.includes('/dashboard')){
