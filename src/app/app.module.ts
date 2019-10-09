@@ -31,6 +31,9 @@ import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { TokenInterceptor } from './token.interceptor';
 import { FrontLayoutComponent } from './layouts/front-layout/front-layout.component';
 import { PersistanceService } from './services/persistanceService.service';
+import { PieChartComponent } from './charts/pie-chart/pie-chart.component';
+
+import { GoogleChartsModule } from 'angular-google-charts';
 
 @NgModule({
   declarations: [
@@ -52,14 +55,15 @@ import { PersistanceService } from './services/persistanceService.service';
     DashboardDetailComponent,
     LoginComponent,
     RightLayoutComponent,
-    FrontLayoutComponent
+    FrontLayoutComponent,
+    PieChartComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
     FormsModule,
-
+    GoogleChartsModule,
   ],
   providers: [FormBuilder, TokenService, AuthService, BoardDetailService, PersistanceService,
     { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true }],

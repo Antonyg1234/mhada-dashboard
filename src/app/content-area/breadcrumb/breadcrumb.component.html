@@ -12,6 +12,11 @@
   <ul class="breacrumbs" *ngIf="page_type === 'modules'">
     <li><a [routerLink]="['/boards']"><i class="zmdi zmdi-home"></i><span>Boards</span></a></li>
     <li><a [routerLink]="['/projects',board_id]"><span>Projects</span></a></li>
-    <li><a><span>Modules/Dashboard</span></a></li>
+    <li><a><span>Modules</span></a></li>
+  </ul>
+  <ul class="breacrumbs" *ngIf="page_type === 'dashboard'">
+    <li><a [routerLink]="['/boards']"><i class="zmdi zmdi-home"></i><span>Boards</span></a></li>
+    <li><a [routerLink]="['/projects',board_id]"><span>Projects</span></a></li>
+    <li><a><span>Dashboard</span></a></li>
   </ul>
 </div>
