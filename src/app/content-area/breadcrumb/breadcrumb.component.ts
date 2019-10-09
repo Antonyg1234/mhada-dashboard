@@ -24,9 +24,13 @@ export class BreadcrumbComponent implements OnInit {
     }else if(this.href.includes('/projects')){
       this.dash_name = 'Projects';
       this.page_type = 'projects';
-    }else if(this.href.includes('/dashboard')|| this.href.includes('/modules')){
-      this.dash_name = 'Modules/Dashboard';
+    }else if(this.href.includes('/modules')){
+      this.dash_name = 'Modules';
       this.page_type = 'modules';
+      this.board_id = this.persistanceService.get('selectedBoard');
+    }else if(this.href.includes('/dashboard')){
+      this.dash_name = 'Dashboard';
+      this.page_type = 'dashboard';
       this.board_id = this.persistanceService.get('selectedBoard');
     }
   }

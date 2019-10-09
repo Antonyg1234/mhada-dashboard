@@ -9,10 +9,10 @@
           <!-- leftcontent -->
           <!-- <div class="progress-cards"> -->
           <ul class="board-card-list">
-              
+
             <li *ngFor="let dash of dashboard" class="card">
               <span class="value newline" style="font-size: 18px">
-                
+
                 {{dash['count']}}
               </span>
               <h6 class="name">{{dash['title']}}</h6>
@@ -80,7 +80,7 @@
       <!--rightcontent start-->
       <div class="rightsection col-md-4 p-0">
         <!-- rightsection -->
-
+        <app-pie-chart></app-pie-chart>
         <div class="progress-chart">
           <h2 class="chart-head"></h2>
           <div class="chart-diagram">
