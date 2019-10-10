@@ -7,12 +7,15 @@
 
         <div class="row applicationpagecontent">
           <!--moduledetails start-->
-          <div *ngFor="let module of modules"  class="col-12 col-sm-12 col-md-6">
-            <a [routerLink]="['/dashboard']" [state]="{url:module.url}">
+          <div *ngFor="let module of modules; index as i"  class="col-12 col-sm-12 col-md-6">
+            
+            <!-- <a [routerLink]="['/dashboard']" [state]="{url:module.url}" (click)="getSubmodules(module.type)"> -->
+            <a [routerLink]="['/sub_module',i]" [state]="{url:'moduletype'}">
               <div class="moduledetails">
-                <div class="module_number caramelbg">{{module.count}}</div>
+                  <img src="assets/images/redevelopment.png" alt="" style="width:35px;">
+                <!-- <div class="module_number caramelbg">{{module.icon}}</div> -->
                 <div class="ml-3">
-                  <div class="module_name mt-2">{{ module.title }}</div>
+                  <div class="module_name mt-2">{{ module.type}}</div>
                   <!-- <p>{{ module.url }}</p> -->
                   <!-- <p>Description - Will Be Displayed Here.</p> -->
                 </div>

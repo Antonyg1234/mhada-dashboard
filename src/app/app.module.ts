@@ -34,6 +34,7 @@ import { PersistanceService } from './services/persistanceService.service';
 import { PieChartComponent } from './charts/pie-chart/pie-chart.component';
 
 import { GoogleChartsModule } from 'angular-google-charts';
+import { SubModulesComponent } from './content-area//sub-modules/sub-modules.component';
 
 @NgModule({
   declarations: [
@@ -56,7 +57,8 @@ import { GoogleChartsModule } from 'angular-google-charts';
     LoginComponent,
     RightLayoutComponent,
     FrontLayoutComponent,
-    PieChartComponent
+    PieChartComponent,
+    SubModulesComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,111 @@
+<div class="main">
+        <div class="container-fluid">
+          <app-breadcrumb></app-breadcrumb>
+          <div class="row">
+            <!--leftcontent start-->
+            <div class="left col-md-8 p-0">
+      
+              <div class="row applicationpagecontent">
+                <!--moduledetails start-->
+                <div *ngFor="let module of submodules.data"  class="col-12 col-sm-12 col-md-6">
+                  <!-- <a [routerLink]="['/dashboard']" [state]="{url:module.url}" (click)="getSubmodules(module.type)"> -->
+                  <a [routerLink]="['/dashboard']" [state]="{url:module.url}">
+                    <div class="moduledetails">
+                        <img src="assets/images/redevelopment.png" alt="" style="width:35px;">
+                      <!-- <div class="module_number caramelbg">{{module.icon}}</div> -->
+                      <div class="ml-3">
+                        <div class="module_name mt-2">{{ module.title }}</div>
+                        <!-- <p>{{ module.url }}</p> -->
+                        <!-- <p>Description - Will Be Displayed Here.</p> -->
+                      </div>
+                    </div>
+                  </a>
+                </div>
+                <!--moduledetails end-->
+                <!--moduledetails start-->
+                <!-- <div class="col-12 col-sm-12 col-md-6">
+                  <a [routerLink]="['/dashboard']">
+                    <div class="moduledetails">
+                      <div class="module_number montecarlobg">02</div>
+                      <div class="ml-3">
+                        <div class="module_name">Module name - REE</div>
+                        <p>Description - Will Be Displayed Here.</p>
+                      </div>
+                    </div>
+                  </a>
+                </div> -->
+                <!--moduledetails end-->
+                <!--moduledetails start-->
+                <!-- <div class="col-12 col-sm-12 col-md-6">
+                  <a [routerLink]="['/dashboard']">
+                    <div class="moduledetails">
+                      <div class="module_number rosebudbg">03</div>
+                      <div class="ml-3">
+                        <div class="module_name">RTI - Module</div>
+                        <p>Description - Will Be Displayed Here.</p>
+                      </div>
+                    </div>
+                  </a>
+                </div> -->
+                <!--moduledetails end-->
+                <!--moduledetails start-->
+                <!-- <div class="col-12 col-sm-12 col-md-6">
+                  <a [routerLink]="['/dashboard']">
+                    <div class="moduledetails">
+                      <div class="module_number pinkbg">04</div>
+                      <div class="ml-3">
+                        <div class="module_name">Architect - Module</div>
+                        <p>Description - Will Be Displayed Here.</p>
+                      </div>
+                    </div>
+                  </a>
+                </div> -->
+                <!--moduledetails end-->
+                <!--moduledetails start-->
+                <!-- <div class="col-12 col-sm-12 col-md-6">
+                  <a [routerLink]="['/dashboard']">
+                    <div class="moduledetails">
+                      <div class="module_number tropicalbluebg">05</div>
+                      <div class="ml-3">
+                        <div class="module_name">Estate & Conveyance</div>
+                        <p>Description - Will Be Displayed Here.</p>
+                      </div>
+                    </div>
+                  </a>
+                </div> -->
+                <!--moduledetails end-->
+                <!--moduledetails start-->
+                <!-- <div class="col-12 col-sm-12 col-md-6">
+                  <a [routerLink]="['/dashboard']">
+                    <div class="moduledetails">
+                      <div class="module_number romanticbg">06</div>
+                      <div class="ml-3">
+                        <div class="module_name">Lorem Ipsum</div>
+                        <p>Description - Will Be Displayed Here.</p>
+                      </div>
+                    </div>
+                  </a>
+                </div> -->
+                <!--moduledetails end-->
+              </div>
+            </div>
+          </div>
+        </div>
+        <!--leftcontent end-->
+        <!--rightcontent start-->
+        <div class="rightcontent col-md-4 p-0">
+          <app-svg></app-svg>
+          <!--organizationcontent start-->
+          <div class="organizationcontent">
+            <div class="map">
+              <img src="{{selected_board.large_icon}}" alt="">
+            </div>
+            <div class="organizationtitle">
+              <h2>Modules of MBD Project Of MHADA Mumbai Board</h2>
+            </div>
+          </div>
+          <!--organizationcontent end-->
+        </div>
+        <!--rightcontent end-->
+      </div>
+      
