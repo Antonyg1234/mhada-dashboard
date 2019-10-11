@@ -25,7 +25,14 @@ export class ModuleDetailComponent implements OnInit {
 
   getModulesList(project_id): void {
     this.service.getModuleList(project_id)
-      .subscribe(modules => (this.modules = modules['data']));
+      .subscribe(modules => {
+        this.modules = modules['data'];
+        this.persister.set('SelectedModules',this.modules);
+      });
+  }
+
+  getSubmodules(type){
+
   }
 
 }

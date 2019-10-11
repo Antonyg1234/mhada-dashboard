@@ -7,6 +7,7 @@ import { DashboardDetailComponent } from './content-area/views/dashboard-detail/
 import { LoginComponent } from './login/login.component';
 import { CommonLayoutComponent } from './layouts/common-layout/common-layout.component';
 import { FrontLayoutComponent } from './layouts/front-layout/front-layout.component';
+import { SubModulesComponent } from './content-area/sub-modules/sub-modules.component';
 import {AuthGuard} from './guards/AuthGuard';
 const routes: Routes = [
   {
@@ -43,6 +44,14 @@ const routes: Routes = [
     canActivate: [AuthGuard],
     children: [
         { path: '', component: ModuleDetailComponent },
+    ]
+  },
+  {
+    path:'sub_module/:module_id',
+    component:CommonLayoutComponent,
+    canActivate: [AuthGuard],
+    children: [
+        { path: '', component: SubModulesComponent },
     ]
   },
   {

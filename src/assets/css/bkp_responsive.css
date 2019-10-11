@@ -1,19 +1,16 @@
-@media(max-width:1600px){
+@media(max-width:1500px){
   .projectlistDetails.col-md-11{flex: auto;max-width: auto;}
    .chart-diagram #donutchart {
     width: 330px;
   }
-  .main{width: 90%;}
-  .module_name{
-  min-height: 53px;font-size: 15px;}
-
+   .main{width: 90%;}
 }
 @media (min-width:768px) and (max-width: 1024px){
 
 .budget{background-image: none;flex-direction: column;}
  .budget .title{width:100%;margin:0px;margin-bottom: 10px;
 border-bottom: 1px solid rgba(0,0,0,0.1);
-padding-bottom: 10px;text-align: center;}
+padding-bottom: 10px;}
 .main{top: 60px;}
 header.active{padding-left:0px;}
 .main.active{padding:30px 0px 0px 90px;}
@@ -33,7 +30,6 @@ h2.chart-head{font-size: 1.2rem;}
 }
 .progress-cards .card .name{font-size: 13px;}
 .progress-cards .card .value{font-size: 30px;}
-.module_name{font-size: 15px;}
 }
 
 @media(max-width:767px){
@@ -45,25 +41,20 @@ header.active{padding-left:0px;}
 .logo img{max-width: 100%;}
 .budget {background: url('../images/triangle.png') no-repeat -138px center #fff;background-size: cover;}
 .budget .title { width: 115px;margin-right: 12px;}
-
 .rightcontent{display:none;}
 .progress-cards .board-card-list .card,
 .progress-cards .board-card-list .card:nth-child(1n+4) { width: 48%;margin: 0% 4% 4% 0%;z-index: -999;}
 .board-menu .menu-list{padding-left:6px;}
 .progress-cards .board-card-list .card:nth-child(2n){margin: 0% 0% 4% 0%;}
-.modulecontent{padding:0px 10px;}
-.module_name{min-height: auto;}
 }
 
 @media(max-width:600px){
 .main{padding:30px 0px 0px 84px;width:95%;}
 .main.active {padding: 30px 0px 0px 84px}
 .main ul.breacrumbs{flex-wrap: wrap;}
-
 .budget{background-image: none;flex-direction: column;padding: 17px 10px;margin-bottom:30px;} 
 .budget .title{width:100%;margin-right:0px;text-align: center;margin-bottom: 10px;border-bottom: 1px solid #EBEBEB;padding-bottom:10px;}
 .budget ul li h3{font-size: 19px;line-height:auto;}
-
 .projectid .departmentname{margin-left:0px;}
 #progress-chart{z-index: 3;}
 
@@ -85,19 +76,14 @@ height: 51px;}
 .board-menu::after{content:none;}
 
 .progress-cards .board-card-list .card:nth-child(2n){margin: 0% 0% 4% 0%;}
-.modulecontent{padding:0px;}
-.module_name{min-height: }
 }
 
 @media(max-width:480px){
-  .budget{padding:17px 15px;}
-  .budget .title{border-bottom: 1px solid #EBEBEB;padding-bottom:10px;margin-bottom:0px;text-align: left;}
+  .budget .title{border-bottom: 1px solid #EBEBEB;padding-bottom:10px;margin-bottom:0px;}
   .budget ul{flex-direction: column;}
-  .budget ul li span{margin:0px;width:auto;}
-  .main{padding:30px 0px 0px 75px;width:95%;}
+  .main{padding:30px 0px 0px 75px;width:96%;}
   .main.active {padding: 30px 0px 0px 75px}
-  .budget ul li{border-bottom: 1px solid #EBEBEB;padding: 10px 0px;border-right:none;text-align: left;}
-  .budget ul li:last-child{text-align: left;align-self:flex-start;}
+  .budget ul li{border-bottom: 1px solid #EBEBEB;padding: 10px 0px;border-right:none;}
   .financialcontent .board-menu ul{padding: 17px 0px 0px 0px;}
   .financialcontent .progress-cards .board-card-list .card, .progress-cards .board-card-list .card:nth-child(n+4){width:100%;}
   .projectlistDetails h3{margin:10px 0px;}
@@ -109,5 +95,4 @@ height: 51px;}
   .module{margin-left: 34px;margin-bottom: 10px;text-align: left;}
   .board-menu::after{content:none;}
   .budget ul li:last-child{border-bottom:none;padding-bottom:0px;}
-  .projectid .departmentname{margin-top:5px;}
 }
