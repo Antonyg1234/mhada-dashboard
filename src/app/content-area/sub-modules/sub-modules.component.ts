@@ -20,7 +20,7 @@ export class SubModulesComponent implements OnInit {
     that.route.paramMap.subscribe(params => {
       let param1 = this.route.snapshot.paramMap.get("module_id");
       that.submodules=that.persister.get('SelectedModules')[param1];
-    this.selected_board=this.persister.get('boardsData').find((x: { id: any; }) => x.id==this.persister.get('selectedBoard'))
+      this.selected_board=this.persister.get('boardsData').find((x: { id: any; }) => x.id==this.persister.get('selectedBoard'))
 
     });
   }
