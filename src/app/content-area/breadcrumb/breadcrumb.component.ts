@@ -30,7 +30,7 @@ export class BreadcrumbComponent implements OnInit {
       this.page_type = 'modules';
       this.board_id = this.persistanceService.get('selectedBoard');
     }else if(this.href.includes('/dashboard')){
-      this.dash_name = 'Dashboard';
+      this.dash_name = this.selected_board['description'];
       this.page_type = 'dashboard';
       this.board_id = this.persistanceService.get('selectedBoard');
     }

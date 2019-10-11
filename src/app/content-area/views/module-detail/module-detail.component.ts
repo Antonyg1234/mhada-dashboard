@@ -20,7 +20,7 @@ export class ModuleDetailComponent implements OnInit {
     this.getModulesList(param1);
     this.selected_board=this.persister.get('boardsData').find((x: { id: any; }) => x.id==this.persister.get('selectedBoard'))
     //console.log(this.selected_board)
-
+    
   }
 
   getModulesList(project_id): void {
@@ -29,10 +29,6 @@ export class ModuleDetailComponent implements OnInit {
         this.modules = modules['data'];
         this.persister.set('SelectedModules',this.modules);
       });
-  }
-
-  getSubmodules(type){
-
   }
 
 }

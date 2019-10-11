@@ -20,7 +20,8 @@ export class ProjectDetailComponent implements OnInit {
 	  let that = this;
 	  this.route.paramMap.subscribe(params => {
 		  let board_id = params.get("board_id");
-		  that.persister.set('selectedBoard',board_id);
+      that.persister.set('selectedBoard',board_id);
+      this.persister.set('selected_submodules',null);
 		  that.getList(board_id);
       that.selected_board_id    =     parseInt(board_id);
       this.selected_board=this.persister.get('boardsData').find(x=>x.id==this.persister.get('selectedBoard'));

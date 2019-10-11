@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router , ActivatedRoute} from '@angular/router';
 import { DashboardDetail, ProjectDetailService } from '../project-detail/project-detail.service';
+import { PersistanceService } from './../../../services/persistanceService.service';
 
 @Component({
   selector: 'app-dashboard-detail',
@@ -12,18 +13,31 @@ export class DashboardDetailComponent implements OnInit {
   dashboard:DashboardDetail[];
   public dashboard_url;
   public Object = Object;
+  submodules: any;
 
-  constructor(private router: Router,private route: ActivatedRoute,private service:ProjectDetailService) {
+  constructor(private persister: PersistanceService,private router: Router,private route: ActivatedRoute,private service:ProjectDetailService) {
     const naviation = this.router.getCurrentNavigation();
     this.dashboard_url=naviation.extras.state;
+    this.submodules=this.persister.get('selected_submodules');
    }
 
   ngOnInit() {
+     if(this.dashboard_url===undefined)
+     {
+      
+      this.dashboard_url={url:this.submodules.data[0].url};
+     }
     this.getDashboardList(this.dashboard_url);
   }
 
   getDashboardList(url): void {
     this.service.getDashboardList(url)
+      .subscribe(dashboard => this.dashboard=dashboard['data']);
+  }
+
+  setUrl(url){
+    let final_url={url:url}
+    this.service.getDashboardList(final_url)
       .subscribe(dashboard => this.dashboard=dashboard['data']);
   }
 
