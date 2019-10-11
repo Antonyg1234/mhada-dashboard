@@ -23,10 +23,10 @@ export class BreadcrumbComponent implements OnInit {
       this.dash_name = 'Boards';
       this.page_type = 'boards';
     }else if(this.href.includes('/projects')){
-      this.dash_name = 'Projects Of '+this.selected_board['description'];
+      this.dash_name = this.selected_board['description'];
       this.page_type = 'projects';
     }else if(this.href.includes('/modules')){
-      this.dash_name = 'Modules Of '+this.selected_board['description'];
+      this.dash_name = this.selected_board['description'];
       this.page_type = 'modules';
       this.board_id = this.persistanceService.get('selectedBoard');
     }else if(this.href.includes('/dashboard')){
