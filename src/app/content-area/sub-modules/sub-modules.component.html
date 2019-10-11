@@ -4,10 +4,10 @@
           <div class="row">
             <!--leftcontent start-->
             <div class="left col-md-8 p-0">
-      
+
               <div class="row applicationpagecontent">
                 <!--moduledetails start-->
-                <div *ngFor="let module of submodules.data"  class="col-12 col-sm-12 col-md-6">
+                <div *ngFor="let module of submodules.data"  class="col-sm-6 col-md-4 col-lg-3">
                   <!-- <a [routerLink]="['/dashboard']" [state]="{url:module.url}" (click)="getSubmodules(module.type)"> -->
                   <a [routerLink]="['/dashboard']" [state]="{url:module.url}">
                     <div class="moduledetails">
@@ -108,4 +108,3 @@
         </div>
         <!--rightcontent end-->
       </div>
-      

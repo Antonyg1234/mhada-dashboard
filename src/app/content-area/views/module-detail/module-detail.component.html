@@ -7,8 +7,8 @@
 
         <div class="row applicationpagecontent">
           <!--moduledetails start-->
-          <div *ngFor="let module of modules; index as i"  class="col-12 col-sm-12 col-md-6">
-            
+          <div *ngFor="let module of modules; index as i"  class="col-sm-6 col-md-4 col-lg-3">
+
             <!-- <a [routerLink]="['/dashboard']" [state]="{url:module.url}" (click)="getSubmodules(module.type)"> -->
             <a [routerLink]="['/sub_module',i]" [state]="{url:'moduletype'}">
               <div class="moduledetails">
