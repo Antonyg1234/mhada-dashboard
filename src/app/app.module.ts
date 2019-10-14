@@ -68,7 +68,7 @@ import { ModalComponent } from './modal/modal.component';
     HttpClientModule,
     AppRoutingModule,
     FormsModule,
-    GoogleChartsModule,
+	GoogleChartsModule.forRoot(),
     NgbModule
   ],
   entryComponents:[ModalComponent],

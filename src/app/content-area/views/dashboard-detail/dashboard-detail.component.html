@@ -89,8 +89,8 @@
       <!--rightcontent start-->
       <div class="rightsection col-md-4 p-0">
         <!-- rightsection -->
-        <app-pie-chart></app-pie-chart>
-        <div class="progress-chart">
+          <app-pie-chart *ngIf="dashboard" [dashboardDetails]="dashboard"></app-pie-chart>
+          <div class="progress-chart">
           <h2 class="chart-head"></h2>
           <div class="chart-diagram">
 

@@ -1,33 +1,48 @@
-import { Component, OnInit } from '@angular/core';
-
+import { Component, OnInit, ChangeDetectorRef, Input, OnChanges, SimpleChanges, SimpleChange} from '@angular/core';
+import { PersistanceService } from './../../services/persistanceService.service';
+import { DashboardDetail} from '../../content-area/views/project-detail/project-detail.service';
 @Component({
   selector: 'app-pie-chart',
   templateUrl: './pie-chart.component.html',
   styleUrls: ['./pie-chart.component.css']
 })
-export class PieChartComponent implements OnInit {
+export class PieChartComponent implements OnInit, OnChanges {
 
-  constructor() { }
+	@Input() dashboardDetails: DashboardDetail[] ;
+	private _dashboardDetails: DashboardDetail[] ;
+	title = 'Browser market shares at a specific website, 2014';
+	type = 'PieChart';
+	graphData   =   [];
+	data = [];
+	columnNames = ['Browser', 'Percentage'];
+	options = {
+	};
+	width = 550;
+	height = 400;
 
-  ngOnInit() {
+  constructor(private cdRef: ChangeDetectorRef, private persister: PersistanceService) {
   }
 
-  title = 'Browser market shares at a specific website, 2014';
-  type = 'PieChart';
-  data = [
-      ['Total Application', 45.0],
-      ['At Counter', 26.8],
-      ['At Lab', 12.8],
-      ['At Sectional Engineer', 8.5],
-      ['At Deputy Engineer', 6.2],
-      ['At Executive Engineer', 0.7]
-   ];
-   columnNames = ['Browser', 'Percentage'];
-   options = {
-   };
-   width = 550;
-   height = 400;
+	ngOnChanges(changes: SimpleChanges) {
+		const name: SimpleChange = changes.dashboardDetails;
+		console.log('prev value: ', name.previousValue);
+		console.log('got name: ', name.currentValue);
+		this._dashboardDetails = name.currentValue;
+		this.setData();
+	}
 
+	ngOnInit() {
+	  this._dashboardDetails    =   this.dashboardDetails;
+	  this.setData();
+    }
+
+  setData() {
+  	let that = this;
+	  that.data   =   [];
+	  that._dashboardDetails.forEach(function(data, item){
+		  that.data.push([data.title, parseFloat(data.count)]);
+	  });
+  }
 }
 
 

@@ -40,8 +40,7 @@ export class DashboardDetailComponent implements OnInit {
 
   setUrl(url){
     let final_url={url:url}
-    this.service.getDashboardList(final_url)
-      .subscribe(dashboard => this.dashboard=dashboard['data']);
+	this.getDashboardList(final_url);
   }
 
   open(data,title) {
