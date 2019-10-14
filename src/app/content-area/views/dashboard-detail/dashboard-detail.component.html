@@ -24,7 +24,7 @@
                 {{dash['count']}}
               </span>
               <h6 class="name">{{dash['title']}}</h6>
-              <button *ngIf="dash['values'].length>0" class="btn btn-outline-primary" (click)="open(dash['values'],dash['title'])">View Details</button>
+              <button *ngIf="dash['values']?.length>0" class="btn btn-outline-primary" (click)="open(dash['values'],dash['title'])">View Details</button>
             </li>
             <!-- <li class="card">
               <span class="value newline">
