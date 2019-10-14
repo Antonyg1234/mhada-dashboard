@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { PersistanceService } from './../../services/persistanceService.service';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-breadcrumb',
@@ -13,11 +13,17 @@ export class BreadcrumbComponent implements OnInit {
   public board_id: number;
   public selected_board:string;
   public page_type:string = "";
-  constructor(private persister: PersistanceService, private router: Router,private persistanceService:PersistanceService) { }
+  selected_board_id: number;
+  constructor(private route: ActivatedRoute, private persister: PersistanceService, private router: Router,private persistanceService:PersistanceService) { }
 
   ngOnInit() {
     this.href = this.router.url;
-    this.selected_board=this.persister.get('boardsData').find(x=>x.id==this.persister.get('selectedBoard'));
+    let that = this;
+	  this.route.paramMap.subscribe(params => {
+      let board_id = params.get("board_id");
+      that.selected_board_id    =     parseInt(board_id);
+      that.selected_board=that.persister.get('boardsData').find(x=>x.id==board_id);
+    })
 
     if(this.href == '/boards'){
       this.dash_name = 'Boards';

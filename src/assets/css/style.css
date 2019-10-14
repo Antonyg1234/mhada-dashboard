@@ -842,3 +842,9 @@ div.google-visualization-tooltip {
     overflow:hidden !important;
 
 }
+img.whitecoloricon{
+  filter:brightness(0) invert(1);
+  -webkit-filter: brightness(0) invert(1);
+  width: 162px;
+  max-height: 108px;
+}
