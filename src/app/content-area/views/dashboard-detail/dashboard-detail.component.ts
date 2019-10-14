@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { Router , ActivatedRoute} from '@angular/router';
 import { DashboardDetail, ProjectDetailService } from '../project-detail/project-detail.service';
 import { PersistanceService } from './../../../services/persistanceService.service';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { ModalComponent } from '../../../modal/modal.component';
+
 
 @Component({
   selector: 'app-dashboard-detail',
@@ -15,7 +18,7 @@ export class DashboardDetailComponent implements OnInit {
   public Object = Object;
   submodules: any;
 
-  constructor(private persister: PersistanceService,private router: Router,private route: ActivatedRoute,private service:ProjectDetailService) {
+  constructor(private modalService: NgbModal,private persister: PersistanceService,private router: Router,private route: ActivatedRoute,private service:ProjectDetailService) {
     const naviation = this.router.getCurrentNavigation();
     this.dashboard_url=naviation.extras.state;
     this.submodules=this.persister.get('selected_submodules');
@@ -39,6 +42,13 @@ export class DashboardDetailComponent implements OnInit {
     let final_url={url:url}
     this.service.getDashboardList(final_url)
       .subscribe(dashboard => this.dashboard=dashboard['data']);
+  }
+
+  open(data,title) {
+    //console.log(data);
+    const modalRef = this.modalService.open(ModalComponent);
+    modalRef.componentInstance.name = title;
+    modalRef.componentInstance.list_data = data;
   }
 
 }

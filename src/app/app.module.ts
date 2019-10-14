@@ -35,6 +35,8 @@ import { PieChartComponent } from './charts/pie-chart/pie-chart.component';
 
 import { GoogleChartsModule } from 'angular-google-charts';
 import { SubModulesComponent } from './content-area//sub-modules/sub-modules.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { ModalComponent } from './modal/modal.component';
 
 @NgModule({
   declarations: [
@@ -59,6 +61,7 @@ import { SubModulesComponent } from './content-area//sub-modules/sub-modules.com
     FrontLayoutComponent,
     PieChartComponent,
     SubModulesComponent,
+    ModalComponent,
   ],
   imports: [
     BrowserModule,
@@ -66,7 +69,9 @@ import { SubModulesComponent } from './content-area//sub-modules/sub-modules.com
     AppRoutingModule,
     FormsModule,
     GoogleChartsModule,
+    NgbModule
   ],
+  entryComponents:[ModalComponent],
   providers: [FormBuilder, TokenService, AuthService, BoardDetailService, PersistanceService,
     { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true }],
   bootstrap: [AppComponent]
