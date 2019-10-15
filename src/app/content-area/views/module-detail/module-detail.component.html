@@ -1,5 +1,5 @@
 <div class="main">
-  <div class="container-fluid">
+  <div class="container-fluid" style="padding-left: 0px !important;">
     <app-breadcrumb></app-breadcrumb>
     <div class="row">
       <!--leftcontent start-->
@@ -12,11 +12,11 @@
             <!-- <a [routerLink]="['/dashboard']" [state]="{url:module.url}" (click)="getSubmodules(module.type)"> -->
             <a [routerLink]="['/sub_module',i]" [state]="{url:'moduletype'}">
               <div class="moduledetails">
-                  <img src="{{module.icon}}" alt="" style="width:35px;    margin-left: 42%;
-                  margin-right: 50%;">
+                  <img src="{{module.icon}}" alt="" style="width:50px; margin-left: auto;
+                  margin-right: auto; align-content: center;text-align: center">
                 <!-- <div class="module_number caramelbg">{{module.icon}}</div> -->
                 <div class="ml-3">
-                  <div class="module_name mt-2 mr-2">{{ module.display_name}}</div>
+                  <div class="module_name mt-2 mr-2 " >{{ module.display_name}}</div>
                   <!-- <p>{{ module.url }}</p> -->
                   <!-- <p>Description - Will Be Displayed Here.</p> -->
                 </div>

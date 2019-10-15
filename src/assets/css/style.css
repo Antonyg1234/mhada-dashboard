@@ -503,6 +503,9 @@ transform: perspective(1px) translateZ(0);
 box-shadow: 0 0 1px rgba(0, 0, 0, 0);
 position: relative;
 overflow: hidden;
+box-shadow: 7px 5px 9px 2px lightgrey;
+border-radius: 10px;
+height: 125px !important;
 }
 .moduledetails:hover{
   box-shadow: 0 10px 10px -10px rgba(0, 0, 0, 0.5);
@@ -545,6 +548,7 @@ transition-timing-function: ease-out;
 display: flex;
 align-items: center;
 justify-content: center;min-height: 54px;
+text-align: center;
 }
 /**financial css*/
 
@@ -658,13 +662,16 @@ justify-content: center;min-height: 54px;
   height: 182px;
   width: 31.3%;
   display: flex;
+  box-shadow: 7px 12px 28px -10px grey;
+  border-radius: 10px;
+  text-align: center;
 }
 
 .newline {
   display: block;
 }
 
-.progress-cards .card:before {
+/* .progress-cards .card:before {
   content: "";
   position: absolute;
   right: 0;
@@ -679,7 +686,7 @@ justify-content: center;min-height: 54px;
   background: -ms-linear-gradient(-45deg, rgba(255,186,108,1) 0%, rgba(255,134,70,1) 100%);
   background: linear-gradient(135deg, rgba(255,186,108,1) 0%, rgba(255,134,70,1) 100%);
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffba6c', endColorstr='#ff8646', GradientType=1 );
-}
+} */
 
 .progress-cards .card:nth-child(2n+2) {
   /*background-color: red;*/

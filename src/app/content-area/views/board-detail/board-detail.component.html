@@ -1,29 +1,34 @@
 <!-- main -->
 <div class="main">
   <div class="container-fluid">
+    <div class="row mb-4">
+      <div class="left col-md-8 p-0">
+        <app-finance-detail></app-finance-detail>
+      </div>
+    </div>
     <app-breadcrumb></app-breadcrumb>
     <div class="row">
       <!--leftcontent start-->
       <div class="left col-md-8 p-0">
-        <app-finance-detail></app-finance-detail>
+
         <div class="row mt-3 d-flex board-cardlist">
           <!--board card start-->
           <div *ngFor="let board of boards" class="col-12 col-sm-6 col-md-6 col-xl-4">
-              <div class="card board-card">
-                <a [routerLink]="['/projects',board.id]">
-                  <div class="card-body">
-                    <div class="d-flex justify-content-between">
-                      <div class="title">{{board.name | slice:0:5}}</div>
-                      <div class="rightimg">
-                        <img src="{{board.icon_url}}" alt="mhadaicon">
-                      </div>
+            <div class="card board-card">
+              <a [routerLink]="['/projects',board.id]">
+                <div class="card-body">
+                  <div class="d-flex justify-content-between">
+                    <div class="title">{{board.name | slice:0:5}}</div>
+                    <div class="rightimg">
+                      <img src="{{board.icon_url}}" alt="mhadaicon">
                     </div>
-                    <p class="small-text d-flex">{{board.description}}</p>
                   </div>
-                </a>
-              </div>
+                  <p class="small-text d-flex">{{board.description}}</p>
+                </div>
+              </a>
             </div>
-            <!--board card end-->
+          </div>
+          <!--board card end-->
 
         </div>
       </div>
@@ -31,7 +36,7 @@
       <!--rightcontent start-->
       <div class="rightcontent col-md-4 p-0">
 
-       <app-svg></app-svg>
+        <app-svg></app-svg>
 
         <!--organizationcontent start-->
         <div class="organizationcontent">

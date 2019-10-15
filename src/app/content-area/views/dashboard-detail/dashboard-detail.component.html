@@ -2,12 +2,15 @@
   <div class="container-fluid">
     <app-breadcrumb></app-breadcrumb>
     <div class="row mb-2">
-      <div class="ml-8">
-    <select class="form-control" (change)="setUrl($event.target.value)" *ngIf="submodules!=null">
-      <option *ngFor="let sub_mod of submodules.data" [value]="sub_mod.url">{{sub_mod.title}}</option>
-    </select>
-    </div>
-
+      <div class="co-md-2 mt-2">
+        <label for="sel-options" *ngIf="submodules!=null">Select Process</label>
+      </div>
+      <div class="co-md-6 ml-2">
+        <select id="sel-options" class="form-control" (change)="setUrl($event.target.value)" *ngIf="submodules!=null">
+          <option *ngFor="let sub_mod of submodules.data" [value]="sub_mod.url">{{sub_mod.title}}</option>
+        </select>
+      </div>
+      
     </div>
     <div class="row financialcontent">
       <!--leftcontent start-->
@@ -24,7 +27,7 @@
                 {{dash['count']}}
               </span>
               <h6 class="name">{{dash['title']}}</h6>
-              <button *ngIf="dash['values']?.length>0" class="btn btn-outline-primary" (click)="open(dash['values'],dash['title'])">View Details</button>
+              <button *ngIf="dash['values']?.length>0" class="btn btn-link" (click)="open(dash['values'],dash['title'])">View Details</button>
             </li>
             <!-- <li class="card">
               <span class="value newline">

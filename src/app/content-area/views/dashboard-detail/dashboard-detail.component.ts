@@ -17,6 +17,10 @@ export class DashboardDetailComponent implements OnInit {
   public dashboard_url;
   public Object = Object;
   submodules: any;
+  public href: string = "";
+  public dash_name: string = "";
+  public board_id: number;
+  public selected_board:string;
 
   constructor(private modalService: NgbModal,private persister: PersistanceService,private router: Router,private route: ActivatedRoute,private service:ProjectDetailService) {
     const naviation = this.router.getCurrentNavigation();
@@ -25,6 +29,12 @@ export class DashboardDetailComponent implements OnInit {
    }
 
   ngOnInit() {
+    this.href = this.router.url;
+    let that = this;
+      this.route.paramMap.subscribe(params => {
+        let board_id = that.persister.get("selectedBoard");
+        this.selected_board = that.persister.get('boardsData').find(x => x.id == parseInt(board_id));
+      });
      if(this.dashboard_url===undefined)
      {
       
