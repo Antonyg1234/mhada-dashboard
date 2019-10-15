@@ -10,7 +10,7 @@ export class PieChartComponent implements OnInit, OnChanges {
 
 	@Input() dashboardDetails: DashboardDetail[] ;
 	private _dashboardDetails: DashboardDetail[] ;
-	title = 'Browser market shares at a specific website, 2014';
+	title = '';
 	type = 'PieChart';
 	graphData   =   [];
 	data = [];
@@ -39,8 +39,8 @@ export class PieChartComponent implements OnInit, OnChanges {
   setData() {
   	let that = this;
 	  that.data   =   [];
-	  that._dashboardDetails.forEach(function(data, item){
-		  that.data.push([data.title, parseFloat(data.count)]);
+	  that._dashboardDetails.forEach(function(data1, item){
+		  that.data.push([data1['title'], parseFloat(data1['count'])]);
 	  });
   }
 }
