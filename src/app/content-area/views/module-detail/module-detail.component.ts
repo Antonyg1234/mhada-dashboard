@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ModuleDetail, ProjectDetailService } from '../project-detail/project-detail.service';
 import { PersistanceService } from './../../../services/persistanceService.service';
 
@@ -11,8 +11,12 @@ import { PersistanceService } from './../../../services/persistanceService.servi
 })
 export class ModuleDetailComponent implements OnInit {
   modules:ModuleDetail[];
+  public dashboard_url;
   selected_board:any;
-  constructor(private persister: PersistanceService,private route: ActivatedRoute,private service:ProjectDetailService) { }
+  constructor(private router: Router,private persister: PersistanceService,private route: ActivatedRoute,private service:ProjectDetailService) { 
+    const naviation = this.router.getCurrentNavigation();
+    this.dashboard_url=naviation.extras.state;
+  }
 
   ngOnInit() {
     let param1 = this.route.snapshot.paramMap.get("project_id");
@@ -20,6 +24,7 @@ export class ModuleDetailComponent implements OnInit {
     this.getModulesList(param1);
     this.selected_board=this.persister.get('boardsData').find((x: { id: any; }) => x.id==this.persister.get('selectedBoard'))
     //console.log(this.selected_board)
+    this.persister.set('selected_project',this.dashboard_url['project_name']);
     
   }
 

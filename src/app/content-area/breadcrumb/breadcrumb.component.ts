@@ -20,6 +20,7 @@ export class BreadcrumbComponent implements OnInit {
     this.href = this.router.url;
     let that = this;
     this.route.paramMap.subscribe(params => {
+		//.log(this.persister.get('selected_project'))
 
     	if(this.href.includes('/projects')) {
 		    let board_id = params.get("board_id");
@@ -40,7 +41,7 @@ export class BreadcrumbComponent implements OnInit {
 		    this.page_type = 'modules';
 		    this.board_id = this.persistanceService.get('selectedBoard');
 	    }else if(this.href.includes('/dashboard')){
-		    this.dash_name = this.selected_board['description'];
+		    this.dash_name = this.selected_board['description']+" - "+this.persister.get('selected_project');
 		    this.page_type = 'dashboard';
 		    this.board_id = this.persistanceService.get('selectedBoard');
 	    }

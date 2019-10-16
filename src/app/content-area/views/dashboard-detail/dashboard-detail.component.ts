@@ -21,11 +21,14 @@ export class DashboardDetailComponent implements OnInit {
   public dash_name: string = "";
   public board_id: number;
   public selected_board:string;
+  public selected_module:string="";
 
   constructor(private modalService: NgbModal,private persister: PersistanceService,private router: Router,private route: ActivatedRoute,private service:ProjectDetailService) {
     const naviation = this.router.getCurrentNavigation();
     this.dashboard_url=naviation.extras.state;
+    
     this.submodules=this.persister.get('selected_submodules');
+    this.selected_module=this.persister.get('selected_submodules');
    }
 
   ngOnInit() {
@@ -33,6 +36,7 @@ export class DashboardDetailComponent implements OnInit {
     let that = this;
       this.route.paramMap.subscribe(params => {
         let board_id = that.persister.get("selectedBoard");
+        this.persister.set('selected_project',this.dashboard_url['project_name']);
         this.selected_board = that.persister.get('boardsData').find(x => x.id == parseInt(board_id));
       });
      if(this.dashboard_url===undefined)

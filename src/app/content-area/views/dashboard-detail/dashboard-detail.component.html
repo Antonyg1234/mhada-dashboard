@@ -3,7 +3,7 @@
     <app-breadcrumb></app-breadcrumb>
     <div class="row mb-2">
       <div class="co-md-2 mt-2">
-        <label for="sel-options" *ngIf="submodules!=null">Select Process</label>
+        <label for="sel-options" *ngIf="submodules!=null">{{selected_module['display_name']}}</label>
       </div>
       <div class="co-md-6 ml-2">
         <select id="sel-options" class="form-control" (change)="setUrl($event.target.value)" *ngIf="submodules!=null">
