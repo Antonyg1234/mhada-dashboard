@@ -13,6 +13,7 @@ export class ModuleDetailComponent implements OnInit {
   modules:ModuleDetail[];
   public dashboard_url;
   selected_board:any;
+  selected_project:any;
   constructor(private router: Router,private persister: PersistanceService,private route: ActivatedRoute,private service:ProjectDetailService) { 
     const naviation = this.router.getCurrentNavigation();
     this.dashboard_url=naviation.extras.state;
@@ -25,7 +26,7 @@ export class ModuleDetailComponent implements OnInit {
     this.selected_board=this.persister.get('boardsData').find((x: { id: any; }) => x.id==this.persister.get('selectedBoard'))
     //console.log(this.selected_board)
     this.persister.set('selected_project',this.dashboard_url['project_name']);
-    
+    this.selected_project=this.dashboard_url['project_name'];
   }
 
   getModulesList(project_id): void {

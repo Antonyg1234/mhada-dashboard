@@ -20,13 +20,13 @@ export class PersistanceService {
 
   set(key: string, data: any): void {
     try {
-      console.log('persister key ', key);
+      //console.log('persister key ', key);
     	localStorage.setItem(key, JSON.stringify(data));
       if(key == 'boardsData'){
       	this.getAllBoards();
       }
 	  if(key == 'selectedBoard'){
-      	console.log('selectedBoard called');
+      	//console.log('selectedBoard called');
       	this.boardChange();
 	  }
     } catch (e) {

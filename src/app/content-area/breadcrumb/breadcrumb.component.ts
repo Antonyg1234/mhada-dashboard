@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { PersistanceService } from './../../services/persistanceService.service';
 import { Router, ActivatedRoute } from '@angular/router';
 
@@ -14,9 +14,11 @@ export class BreadcrumbComponent implements OnInit {
   public board_id: number;
   public selected_board:string;
   public page_type:string = "";
+  @Input() moduleId:number;
   constructor(private route: ActivatedRoute, private persister: PersistanceService, private router: Router,private persistanceService:PersistanceService) { }
 
   ngOnInit() {
+	  console.log("insode breadcrumbs",this.moduleId);
     this.href = this.router.url;
     let that = this;
     this.route.paramMap.subscribe(params => {

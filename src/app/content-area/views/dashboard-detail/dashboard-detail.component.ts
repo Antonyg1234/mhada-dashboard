@@ -22,16 +22,19 @@ export class DashboardDetailComponent implements OnInit {
   public board_id: number;
   public selected_board:string;
   public selected_module:string="";
+  public module_id:string="";
 
   constructor(private modalService: NgbModal,private persister: PersistanceService,private router: Router,private route: ActivatedRoute,private service:ProjectDetailService) {
     const naviation = this.router.getCurrentNavigation();
     this.dashboard_url=naviation.extras.state;
-    
+    console.log('last dashboard module id',this.dashboard_url['module_id']);
+    this.module_id=this.dashboard_url['module_id'];
     this.submodules=this.persister.get('selected_submodules');
     this.selected_module=this.persister.get('selected_submodules');
    }
 
   ngOnInit() {
+    //console.log(this.module_id)
     this.href = this.router.url;
     let that = this;
       this.route.paramMap.subscribe(params => {
@@ -39,10 +42,13 @@ export class DashboardDetailComponent implements OnInit {
         this.persister.set('selected_project',this.dashboard_url['project_name']);
         this.selected_board = that.persister.get('boardsData').find(x => x.id == parseInt(board_id));
       });
-     if(this.dashboard_url===undefined)
+      //console.log('ok')
+     if(this.dashboard_url!=="")
      {
-      
+      if(this.dashboard_url.module_id!==undefined)
+      {
       this.dashboard_url={url:this.submodules.data[0].url};
+      }
      }
     this.getDashboardList(this.dashboard_url);
   }

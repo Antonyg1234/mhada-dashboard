@@ -25,9 +25,12 @@ export class PieChartComponent implements OnInit, OnChanges {
 
 	ngOnChanges(changes: SimpleChanges) {
 		const name: SimpleChange = changes.dashboardDetails;
-		console.log('prev value: ', name.previousValue);
-		console.log('got name: ', name.currentValue);
+		// console.log('prev value: ', name.previousValue);
+		// console.log('got name: ', name.currentValue);
 		this._dashboardDetails = name.currentValue;
+		//   this._dashboardDetails = name.currentValue.filter(function(data) {
+		// 	return data['title'].toLowerCase().lastIndexOf('total')<0;
+		//   });
 		this.setData();
 	}
 

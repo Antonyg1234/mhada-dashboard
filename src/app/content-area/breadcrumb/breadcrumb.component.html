@@ -2,27 +2,31 @@
   <div class="heading col-md-10 p-0">
     <h2>{{ dash_name }} </h2>
   </div>
-  <div class="col-md-2 text-right"><a [routerLink]="['/projects',board_id]" class="btn btn-link" style="margin-right: -60%;"><i class="fa fa-arrow-left" aria-hidden="true"></i>&nbsp;&nbsp;back</a></div>
+  <div class="col-md-2 text-right">
+    <a [routerLink]="['/projects',board_id]" class="btn btn-link" style="margin-right: -60%;">
+      <i class="fa fa-arrow-left" aria-hidden="true"></i>&nbsp;&nbsp;back
+    </a>
+    </div>
   <ul class="breacrumbs" *ngIf="page_type === 'boards'">
     <li><a [routerLink]="['/boards']"><i class="zmdi zmdi-home"></i><span>Boards</span></a></li>
   </ul>
   <ul class="breacrumbs" *ngIf="page_type === 'projects'">
     <li><a [routerLink]="['/boards']"><i class="zmdi zmdi-home"></i><span>Boards</span></a></li>
-    <li><a ><span>Projects</span></a></li>
+    <li><a ><span>Modules</span></a></li>
   </ul>
   <ul class="breacrumbs" *ngIf="page_type === 'modules'">
     <li><a [routerLink]="['/boards']"><i class="zmdi zmdi-home"></i><span>Boards</span></a></li>
-    <li><a [routerLink]="['/projects',board_id]"><span>Projects</span></a></li>
-    <li><a><span>Modules</span></a></li>
+    <li><a [routerLink]="['/projects',board_id]"><span>Modules</span></a></li>
+    <li><a><span>Sub Modules</span></a></li>
   </ul>
   <ul class="breacrumbs" *ngIf="page_type === 'sub_module'">
       <li><a [routerLink]="['/boards']"><i class="zmdi zmdi-home"></i><span>Boards</span></a></li>
-      <li><a [routerLink]="['/projects',board_id]"><span>Projects</span></a></li>
-      <li><a><span>Modules</span></a></li>
+      <li><a [routerLink]="['/projects',board_id]"><span>Modules</span></a></li>
+      <li><a><span>Sub Modules</span></a></li>
   </ul>
   <ul class="breacrumbs" *ngIf="page_type === 'dashboard'">
     <li><a [routerLink]="['/boards']"><i class="zmdi zmdi-home"></i><span>Boards</span></a></li>
-    <li><a [routerLink]="['/projects',board_id]"><span>Projects</span></a></li>
+    <li><a [routerLink]="['/projects',board_id]"><span>Modules</span></a></li>
     <li><a><span>Dashboard</span></a></li>
   </ul>
 </div>
