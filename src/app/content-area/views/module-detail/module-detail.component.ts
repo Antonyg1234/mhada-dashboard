@@ -14,6 +14,7 @@ export class ModuleDetailComponent implements OnInit {
   public dashboard_url;
   selected_board:any;
   selected_project:any;
+  selected_project_id:any;
   constructor(private router: Router,private persister: PersistanceService,private route: ActivatedRoute,private service:ProjectDetailService) { 
     const naviation = this.router.getCurrentNavigation();
     this.dashboard_url=naviation.extras.state;
@@ -21,7 +22,8 @@ export class ModuleDetailComponent implements OnInit {
 
   ngOnInit() {
     let param1 = this.route.snapshot.paramMap.get("project_id");
-    console.log(param1)
+    console.log('ok',param1)
+    this.selected_project_id=param1;
     this.getModulesList(param1);
     this.selected_board=this.persister.get('boardsData').find((x: { id: any; }) => x.id==this.persister.get('selectedBoard'))
     //console.log(this.selected_board)

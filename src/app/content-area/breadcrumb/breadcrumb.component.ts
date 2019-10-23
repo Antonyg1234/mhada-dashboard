@@ -14,11 +14,12 @@ export class BreadcrumbComponent implements OnInit {
   public board_id: number;
   public selected_board:string;
   public page_type:string = "";
-  @Input() moduleId:number;
+  @Input() selectedProjectId:number;
+  @Input() selected_project:string="";
   constructor(private route: ActivatedRoute, private persister: PersistanceService, private router: Router,private persistanceService:PersistanceService) { }
 
   ngOnInit() {
-	  console.log("insode breadcrumbs",this.moduleId);
+	  console.log("insode breadcrumbs",this.selectedProjectId);
     this.href = this.router.url;
     let that = this;
     this.route.paramMap.subscribe(params => {

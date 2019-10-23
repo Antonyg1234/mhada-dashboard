@@ -15,6 +15,8 @@ export class SubModulesComponent implements OnInit {
   public dashboard_url;
   selected_board:any;
   module_id:any;
+  selected_project_id:any;
+  project_name:any;
   constructor(private router:Router, private persister: PersistanceService,private route: ActivatedRoute,private service:ProjectDetailService) { 
     const naviation = this.router.getCurrentNavigation();
     this.dashboard_url=naviation.extras.state;
@@ -32,8 +34,10 @@ export class SubModulesComponent implements OnInit {
       this.persister.set('selected_submodules',that.submodules)
       this.persister.set('selected_project',this.dashboard_url['project_name']);
       //console.log('submodule',this.dashboard_url['project_name'])
+      this.selected_project_id=this.dashboard_url['selected_project_id'];
+      this.project_name=this.dashboard_url['project_name'];
     });
-    this.router.navigate(['/dashboard'],{state:{ module_id: this.module_id,selected_project:this.dashboard_url['project_name'],project_name:this.dashboard_url['project_name'] }});
+    this.router.navigate(['/dashboard'],{state:{ selected_project_id:this.selected_project_id,module_id: this.module_id,selected_project:this.dashboard_url['project_name'],project_name:this.dashboard_url['project_name'] }});
   }
 
 }
