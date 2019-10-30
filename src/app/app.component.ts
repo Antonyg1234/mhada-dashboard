@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -9,4 +9,18 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'mhada-dashboard';
+  constructor(private router:Router){
+
+  }
+  onRefresh() {
+    this.router.routeReuseStrategy.shouldReuseRoute = function(){return false;};
+  
+    let currentUrl = this.router.url + '?';
+  
+    this.router.navigateByUrl(currentUrl)
+      .then(() => {
+        this.router.navigated = false;
+        this.router.navigate([this.router.url]);
+      });
+    }
 }
