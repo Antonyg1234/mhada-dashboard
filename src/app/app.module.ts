@@ -38,6 +38,8 @@ import { SubModulesComponent } from './content-area//sub-modules/sub-modules.com
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ModalComponent } from './modal/modal.component';
 
+import { FinancialService } from './services/financial.service';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -72,7 +74,7 @@ import { ModalComponent } from './modal/modal.component';
     NgbModule
   ],
   entryComponents:[ModalComponent],
-  providers: [FormBuilder, TokenService, AuthService, BoardDetailService, PersistanceService,
+  providers: [FormBuilder, TokenService, AuthService, FinancialService, BoardDetailService, PersistanceService,
     { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true }],
   bootstrap: [AppComponent]
 })
