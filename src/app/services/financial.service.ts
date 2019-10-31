@@ -6,7 +6,8 @@ import { environment } from './../../environments/environment';
 export interface FinancialDetail{
 
      budgetType: string;
-     amount: number;
+     amount: string;
+     values:{};
 }
 
 

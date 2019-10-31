@@ -39,6 +39,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ModalComponent } from './modal/modal.component';
 
 import { FinancialService } from './services/financial.service';
+import { FinanceModalComponent } from './modal/finance-modal/finance-modal.component';
 
 @NgModule({
   declarations: [
@@ -64,6 +65,7 @@ import { FinancialService } from './services/financial.service';
     PieChartComponent,
     SubModulesComponent,
     ModalComponent,
+    FinanceModalComponent,
   ],
   imports: [
     BrowserModule,
@@ -73,7 +75,7 @@ import { FinancialService } from './services/financial.service';
 	GoogleChartsModule.forRoot(),
     NgbModule
   ],
-  entryComponents:[ModalComponent],
+  entryComponents:[ModalComponent,FinanceModalComponent],
   providers: [FormBuilder, TokenService, AuthService, FinancialService, BoardDetailService, PersistanceService,
     { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true }],
   bootstrap: [AppComponent]
