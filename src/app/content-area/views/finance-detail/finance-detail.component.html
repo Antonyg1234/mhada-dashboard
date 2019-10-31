@@ -2,14 +2,14 @@
 <div class="budget">
   <div class="title">
     Total Financial Budget
-    <!--<span>Till date 11th Sept, 2019</span>-->
+    <span><b>{{ board_name }}</b></span>
   </div>
   <ul>
-    <li>
-      <h3 class="numbers orangetext">{{ ( finance === 'undefined') ? '' : finance[0].amount }}</h3><span>{{ ( finance === 'undefined') ? '' : finance[0].budgetType }}</span>
+    <li (click)="openModal(finance[0].values,'Receipt - Department Wise')">
+      <h3 class="numbers orangetext">{{ finance[0].amount }}</h3><span>{{ finance[0].budgetType }}</span>
     </li>
-    <li>
-      <h3 class="numbers purpletxt">{{ ( finance === 'undefined') ? '' : finance[1].amount }}</h3><span>{{ ( finance === 'undefined') ? '' : finance[1].budgetType }}</span>
+    <li (click)="openModal(finance[1].values,'Payment - Department Wise')">
+      <h3 class="numbers purpletxt">{{ finance[1].amount }}</h3><span>{{ finance[1].budgetType }}</span>
     </li>
 
     <li><i class="icon-cost"></i></li>
