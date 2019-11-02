@@ -40,6 +40,7 @@ import { ModalComponent } from './modal/modal.component';
 
 import { FinancialService } from './services/financial.service';
 import { FinanceModalComponent } from './modal/finance-modal/finance-modal.component';
+import { ComboChartComponent } from './charts/combo-chart/combo-chart.component';
 
 @NgModule({
   declarations: [
@@ -66,6 +67,7 @@ import { FinanceModalComponent } from './modal/finance-modal/finance-modal.compo
     SubModulesComponent,
     ModalComponent,
     FinanceModalComponent,
+    ComboChartComponent,
   ],
   imports: [
     BrowserModule,
