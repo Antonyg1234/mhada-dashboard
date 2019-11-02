@@ -35,7 +35,7 @@ export class ComboChartComponent implements OnInit {
 
   ngOnInit() {
       this.data.push(["Previous",0.00, 0.00,100000]);
-      this.data.push(["current",233438093, 61640,100]);
+      this.data.push(["current",233438093, 61640,100  ]);
     console.log('from combo chart',this.dashboardDetails)
   }
 
