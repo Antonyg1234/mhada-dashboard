@@ -28,7 +28,7 @@ export class FinanceDetailComponent implements OnInit {
       //that.comman_name = that.selected_board['common_name'];
       if(typeof that.selected_board === 'undefined'){
         this.board_name = 'All Boards';
-        that.financialService.getFinancialDetail('Mumbai Board')
+        that.financialService.getFinancialDetail(this.board_name)
         .subscribe(finance_details => {
           that.finance = finance_details['data']
         });
