@@ -8,9 +8,11 @@ import { DashboardDetail} from '../../content-area/views/project-detail/project-
 })
 export class ComboChartComponent implements OnInit {
   @Input() dashboardDetails: DashboardDetail[] ;
-  title = 'Billing Distribution';
+  title = 'Expected';
+  title1 = 'Received';
    type = 'ComboChart';
    data:any=[];
+   data1:any=[];
   //  data = [
   //     ["Previous", 3, 2, 2.5],
   //     ["current",2, 3, 2.5],
@@ -18,7 +20,8 @@ export class ComboChartComponent implements OnInit {
   //     ["Bananas", 3, 9, 6],
   //     ["Plums", 4, 2, 3]
   //  ];
-   columnNames = ['Bills', 'Expected','Received','Average'];
+   columnNames = ['Bills', 'Expected'];
+   columnNames1 = ['Bills', 'Received'];   
    options = {   
       hAxis: {
          title: 'Month'
@@ -34,9 +37,12 @@ export class ComboChartComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-      this.data.push(["Previous",0.00, 0.00,100000]);
-      this.data.push(["current",233438093, 61640,100  ]);
-    console.log('from combo chart',this.dashboardDetails)
+      this.data.push(["Previous",0.00]);
+      this.data.push(["Current",233438093]);
+      this.data1.push(["Previous",0.00]);
+      this.data1.push(["Current",61640]);
+
+      console.log('from combo chart',this.dashboardDetails)
   }
 
 }

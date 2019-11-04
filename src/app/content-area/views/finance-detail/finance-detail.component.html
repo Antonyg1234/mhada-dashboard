@@ -6,13 +6,13 @@
   </div>
   <ul>
     <li (click)="openModal(finance[0].values,'Receipt - Department Wise')">
-      <h3 class="numbers orangetext">{{ finance[0].amount }}</h3><span>{{ finance[0].budgetType }}</span>
+      <h3 class="numbers orangetext cursor-pointer">{{ finance[0].budgetAmount }}</h3><span style="font-size: 14px;">{{ finance[0].budgetType }} (in Rs)</span>
     </li>
     <li (click)="openModal(finance[1].values,'Payment - Department Wise')">
-      <h3 class="numbers purpletxt">{{ finance[1].amount }}</h3><span>{{ finance[1].budgetType }}</span>
+      <h3 class="numbers purpletxt cursor-pointer">{{ finance[1].budgetAmount }}</h3><span style="font-size: 14px;">{{ finance[1].budgetType }} (in Rs)</span>
     </li>
 
-    <li><i class="icon-cost"></i></li>
+    <li><i class="icon-cost" style="color: black;"></i></li>
   </ul>
 
 </div>

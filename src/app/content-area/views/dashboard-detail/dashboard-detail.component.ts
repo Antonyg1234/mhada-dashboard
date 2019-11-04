@@ -24,6 +24,7 @@ export class DashboardDetailComponent implements OnInit {
   public selected_module:string="";
   public selected_project_id:string="";
   selected_project:any;
+  dashboard_report:any='';
 
   constructor(private modalService: NgbModal,private persister: PersistanceService,private router: Router,private route: ActivatedRoute,private service:ProjectDetailService) {
     const naviation = this.router.getCurrentNavigation();
@@ -57,7 +58,12 @@ export class DashboardDetailComponent implements OnInit {
 
   getDashboardList(url): void {
     this.service.getDashboardList(url)
-      .subscribe(dashboard => this.dashboard=dashboard['data']);
+      .subscribe(dashboard => {
+        this.dashboard=dashboard['data']
+        console.log("test",dashboard['report']);
+        this.dashboard_report=dashboard['report']!==null?dashboard['report']:'';
+      }
+      );
   }
 
   setUrl(url){
