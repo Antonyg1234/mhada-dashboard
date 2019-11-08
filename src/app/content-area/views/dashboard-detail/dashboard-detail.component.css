@@ -16,3 +16,6 @@
 .nav-tabs .nav-item{
     margin-right:10px;
 }
+table{
+    box-shadow: 7px 12px 28px -10px grey;
+}

@@ -8,8 +8,9 @@ import { DashboardDetail} from '../../content-area/views/project-detail/project-
 })
 export class ComboChartComponent implements OnInit {
   @Input() dashboardDetails: DashboardDetail[] ;
+  @Input() View:any;
   title = 'Expected';
-  title1 = 'Received';
+  title1 = 'Recovered';
    type = 'ComboChart';
    data:any=[];
    data1:any=[];
@@ -21,7 +22,7 @@ export class ComboChartComponent implements OnInit {
   //     ["Plums", 4, 2, 3]
   //  ];
    columnNames = ['Bills', 'Expected'];
-   columnNames1 = ['Bills', 'Received'];   
+   columnNames1 = ['Bills', 'Recovered'];   
    options = {   
       hAxis: {
          title: 'Month'
@@ -37,10 +38,19 @@ export class ComboChartComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-      this.data.push(["Previous",0.00]);
-      this.data.push(["Current",233438093]);
-      this.data1.push(["Previous",0.00]);
-      this.data1.push(["Current",61640]);
+     console.log('data view',this.View[0].data.body);
+     this.View[0].data.body.forEach(element => {
+        console.log(element)
+        var matches = element.Expected.match(/(\d+)/); 
+        this.data.push([element.Month,parseInt(matches[0])]);
+
+        var matches1 = element.Recovered.match(/(\d+)/); 
+        this.data1.push([element.Month,parseInt(matches1[0])]);
+     });
+      // this.data.push(["Previous",0.00]);
+      // this.data.push(["Current",233438093]);
+      // this.data1.push(["Previous",0.00]);
+      // this.data1.push(["Current",61640]);
 
       console.log('from combo chart',this.dashboardDetails)
   }
