@@ -1,7 +1,10 @@
 <div class="row">
   <div class="heading col-md-10 p-0">
     <h2>
-        <span style="display: inline; float: left;" *ngIf="page_type === 'boards'"><li><a [routerLink]="['/boards']"><i style="font-size: 15px;" class="zmdi zmdi-home"></i></a></li></span>
+        <span style="display: inline; float: left;" *ngIf="page_type === 'boards'">
+            <li><a [routerLink]="['/boards']">
+                <i style="font-size: 20px;line-height: 24px;" class="zmdi zmdi-home"></i>
+            </a></li></span>
         &nbsp;{{ dash_name }} </h2>
   </div>
   <div class="col-md-2 text-right">
@@ -20,19 +23,22 @@
   <ul class="breacrumbs" *ngIf="page_type === 'modules'">
       <li style="padding-top: 5px;"><a [routerLink]="['/boards']"><i class="zmdi zmdi-home" style="font-size: 15px;"></i></a></li>
       <li><a [routerLink]="['/projects', board_id]"><span>Board - {{selected_board_name}} </span></a></li>
-    <li><a [routerLink]="['/projects',board_id]"><span>{{selected_project}} Modules</span></a></li>
-    <li><a><span>Sub Modules</span></a></li>
+      <li><a [routerLink]="['/projects',board_id]" style="pointer-events: none;"><span>Module - {{selected_project}}</span></a></li>
+      <li><a><span>Sub Modules</span></a></li>
   </ul>
   <ul class="breacrumbs" *ngIf="page_type === 'sub_module'">
       <li style="padding-top: 5px;"><a [routerLink]="['/boards']"><i class="zmdi zmdi-home" style="font-size: 15px;"></i></a></li>
       <li><a [routerLink]="['/projects', board_id]"><span>Board - {{selected_board_name}} </span></a></li>
-      <li><a [routerLink]="['/projects',board_id]"><span>Modules</span></a></li>
-      <li><a><span>Sub Modules</span></a></li>
+      <li><a [routerLink]="['/projects',board_id]" ><span>Module - {{selected_project}}</span></a></li>
+      <li><a><span>Sub Modules - {{selected_project}}</span></a></li>
+      <li><a><span>Dashboard</span></a></li>
   </ul>
   <ul class="breacrumbs" *ngIf="page_type === 'dashboard'">
       <li style="padding-top: 5px;"><a [routerLink]="['/boards']"><i class="zmdi zmdi-home" style="font-size: 15px;"></i></a></li>
       <li><a [routerLink]="['/projects', board_id]"><span>Board - {{selected_board_name}} </span></a></li>
-    <li><a [routerLink]="['/projects',board_id]"><span>Modules</span></a></li>
-    <li><a><span>Dashboard</span></a></li>
+      <li><a *ngIf="selectedProjectId!==undefined" [routerLink]="['/modules',selectedProjectId]" [state]={project_name:selected_project}><span>Module - {{selected_project}}</span></a></li>
+      <li><a *ngIf="selectedProjectId===undefined"  style="pointer-events: none;"><span>Module - {{selected_project}}</span></a></li>
+      <li><a *ngIf="selectedProjectId!==undefined" style="pointer-events: none;"><span>Sub Module - {{selected_sub_module}}</span></a></li>
+      <li><a><span>Dashboard</span></a></li>
   </ul>
 </div>
