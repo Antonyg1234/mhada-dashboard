@@ -13,6 +13,7 @@ export class BreadcrumbComponent implements OnInit {
   public dash_name: string = "";
   public board_id: number;
   public selected_board:string;
+  public selected_board_name:string;
   public page_type:string = "";
   @Input() selectedProjectId:number;
   @Input() selected_project:string="";
@@ -24,7 +25,7 @@ export class BreadcrumbComponent implements OnInit {
     let that = this;
     this.route.paramMap.subscribe(params => {
 		//.log(this.persister.get('selected_project'))
-
+		console.log(this.persister.get('boardsData'));
     	if(this.href.includes('/projects')) {
 		    let board_id = params.get("board_id");
 		    this.selected_board = that.persister.get('boardsData').find(x => x.id == board_id);
@@ -39,14 +40,18 @@ export class BreadcrumbComponent implements OnInit {
 	    }else if(this.href.includes('/projects')){
 		    this.dash_name = this.selected_board['description'];
 		    this.page_type = 'projects';
+		    this.selected_board_name    =    this.selected_board['description'].replace('Board','');
+		    this.board_id = this.persistanceService.get('selectedBoard');
 	    }else if(this.href.includes('/modules')){
 		    this.dash_name = this.selected_board['description'];
 		    this.page_type = 'modules';
 		    this.board_id = this.persistanceService.get('selectedBoard');
+		    this.selected_board_name    =    this.selected_board['description'].replace('Board','');
 	    }else if(this.href.includes('/dashboard')){
 		    this.dash_name = this.selected_board['description']+" - "+this.persister.get('selected_project');
 		    this.page_type = 'dashboard';
 		    this.board_id = this.persistanceService.get('selectedBoard');
+		    this.selected_board_name    =    this.selected_board['description'].replace('Board','');
 	    }
     });
   }

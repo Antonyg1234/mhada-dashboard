@@ -9,6 +9,7 @@ import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 export class ModalComponent implements OnInit {
 
   @Input() name;
+  @Input() list_data;
 
   constructor(public activeModal: NgbActiveModal) { }
 

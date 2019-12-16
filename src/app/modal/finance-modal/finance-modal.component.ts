@@ -8,7 +8,8 @@ import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 })
 export class FinanceModalComponent implements OnInit {
    @Input() finance_name;
-
+	@Input() list_data;
+	@Input() title;
   constructor(public activeModal: NgbActiveModal) { }
 
   ngOnInit() {

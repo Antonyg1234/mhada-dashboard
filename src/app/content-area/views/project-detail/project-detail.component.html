@@ -2,7 +2,7 @@
   <div class="container-fluid" style="padding-left: 0px !important;">
       <div class="row mb-4">
           <div class="left col-md-8 p-0">
-            <app-finance-detail></app-finance-detail>
+            <app-finance-detail *ngIf="selected_board_id != 11"></app-finance-detail>
           </div>
         </div>
     <app-breadcrumb></app-breadcrumb>
@@ -45,6 +45,7 @@
           <h2 *ngIf="selected_board_id == 8">Nagpur Board </h2>
           <h2 *ngIf="selected_board_id == 9">Aurangabad Board </h2>
           <h2 *ngIf="selected_board_id == 10">Nashik Board </h2>
+          <h2 *ngIf="selected_board_id == 11">PMAY </h2>
         </div>
       </div>
       <!--organizationcontent end-->
