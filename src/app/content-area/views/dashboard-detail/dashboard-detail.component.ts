@@ -23,6 +23,9 @@ export class DashboardDetailComponent implements OnInit {
   public selected_board:string;
   public selected_module:string="";
   public selected_project_id:string="";
+  public displayType:string="";
+  public selectedWard:string="";
+  public wardDetails:any=[];
   selected_project:any;
   dashboard_report:any='';
   view:any;
@@ -59,12 +62,21 @@ export class DashboardDetailComponent implements OnInit {
   }
 
   getDashboardList(url): void {
-    this.service.getDashboardList(url)
+	url.board_name = this.selected_board['name'];
+  	this.service.getDashboardList(url)
       .subscribe(dashboard => {
-        this.dashboard=dashboard['data']
-        this.dashboard_report=dashboard['report']!==null?dashboard['report']:'';
-        this.view=dashboard['view']
-      }
+	        if('displayType' in dashboard){
+		        this.displayType =   dashboard['displayType'];
+		        this.selectedWard =   dashboard['selectedWard'];
+
+		        if(this.wardDetails.length == 0) {
+			        this.wardDetails = dashboard['urls'];
+		        }
+	        }
+	        this.dashboard=dashboard['data']
+	        this.dashboard_report=dashboard['report']!==null?dashboard['report']:'';
+	        this.view=dashboard['view'];
+        }
       );
   }
 

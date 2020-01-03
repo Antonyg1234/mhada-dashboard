@@ -10,39 +10,43 @@ import { FinanceModalComponent } from '../../../modal/finance-modal/finance-moda
   styleUrls: ['./finance-detail.component.css'],
   //providers:[PersistanceService]
 })
+
 export class FinanceDetailComponent implements OnInit {
-  finance: FinancialDetail[] = [{budgetType:'Receipt',amount:'0',values:{}},{budgetType:'Payment',amount:'0',values:{}}] ;
-  selected_board_id:number=0;
-  selected_board:any;
-  board_name:string='';
+		finance: FinancialDetail[] = [{budgetType:'Receipt',amount:'0',values:{}},{budgetType:'Payment',amount:'0',values:{}}] ;
+		selected_board_id:number=0;
+		selected_board:any;
+		board_name:string='';
+		totalBudgetData:any = {budgetType: "Total Budget",amount: '0',budgetAmount: "0",values: [],budgetDetails: []};
 
-  constructor(private modalService: NgbModal,private financialService: FinancialService,private route: ActivatedRoute, private persister: PersistanceService) {
-
-  }
+    constructor(private modalService: NgbModal,private financialService: FinancialService,private route: ActivatedRoute, private persister: PersistanceService) {
+    }
 
   ngOnInit() {
+
     let that = this;
 
 	  this.route.paramMap.subscribe(params => {
       that.selected_board=that.persister.get('boardsData').find(x=>x.id==that.persister.get('selectedBoard'));
       //that.comman_name = that.selected_board['common_name'];
-      if(typeof that.selected_board === 'undefined'){
+
+	  if(typeof that.selected_board === 'undefined'){
         this.board_name = 'All Boards';
         that.financialService.getFinancialDetail(this.board_name)
         .subscribe(finance_details => {
-          that.finance = finance_details['data']
+          that.finance = finance_details['data'];
+          that.totalBudgetData = finance_details['totalData'];
         });
-      }else{
+      } else {
         this.board_name = that.selected_board['description'];
         that.financialService.getFinancialDetail(that.selected_board['common_name'])
         .subscribe(finance_details => {
-          that.finance = finance_details['data']
+	        console.log('totalData' in finance_details);
+	        console.log(finance_details);
+	          that.finance = finance_details['data'];
+	          that.totalBudgetData = finance_details['totalData'];
         });
       }
-
-
     });
-
   }
 
   openModal(data,title:string) {

@@ -4,13 +4,17 @@
     Total Financial Budget
     <span><b>{{ board_name }}</b></span>
   </div>
-  <ul>
+   <ul>
+    <li *ngIf="((totalBudgetData.budgetDetails !== undefined) )" (click)="totalBudgetData.budgetDetails !== undefined ? openModal(totalBudgetData.budgetDetails,'Total Budget Details') : false">
+      <h3 class="numbers orangetext cursor-pointer">{{ totalBudgetData.budgetAmount }}</h3>
+        <span style="font-size: 14px;">{{ totalBudgetData.budgetType }} (in Rs)</span>
+    </li>
     <li (click)="finance[0].values !== undefined ? openModal(finance[0].values,'Receipt - Department Wise') : false">
       <h3 class="numbers orangetext cursor-pointer">{{ finance[0].budgetAmount }}</h3><span style="font-size: 14px;">{{ finance[0].budgetType }} (in Rs)</span>
     </li>
-    <li (click)="finance[0].values !== undefined ? openModal(finance[1].values,'Payment - Department Wise') : false">
+    <!--<li (click)="finance[0].values !== undefined ? openModal(finance[1].values,'Payment - Department Wise') : false">
       <h3 class="numbers purpletxt cursor-pointer">{{ finance[1].budgetAmount }}</h3><span style="font-size: 14px;">{{ finance[1].budgetType }} (in Rs)</span>
-    </li>
+    </li>-->
 
     <li><i class="icon-cost" style="color: black;"></i></li>
   </ul>

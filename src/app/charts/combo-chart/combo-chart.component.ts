@@ -38,7 +38,6 @@ export class ComboChartComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-     console.log('data view',this.View[0].data.body);
      this.View[0].data.body.forEach(element => {
         console.log(element)
         var matches = element.Expected.match(/(\d+)/); 

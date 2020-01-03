@@ -4,12 +4,18 @@ import { environment } from './../../environments/environment';
 
 
 export interface FinancialDetail{
-
      budgetType: string;
      amount: string;
      values:{};
 }
 
+export interface TotalFinancialDetail{
+	budgetType: string;
+	amount: string;
+	budgetAmount: string;
+	values:{};
+	budgetDetails:[];
+}
 
 @Injectable()
 export class FinancialService {

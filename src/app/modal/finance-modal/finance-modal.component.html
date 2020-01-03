@@ -7,8 +7,8 @@
 <div class="modal-body">
   <table class="table">
     <tr *ngFor="let data of list_data">
-      <th>{{data['departmentName']}}</th>
-      <td>Rs. {{data['amount']}}</td>
+      <th>{{data['departmentName'] ? data['departmentName'] : (data['budgetType'] ? data['budgetType'] : '') }}</th>
+      <th>{{data['budgetAmount'] ? data['budgetAmount'] : (data['amount'] ? data['amount'] : '') }}</th>
     </tr>
   </table>
 </div>

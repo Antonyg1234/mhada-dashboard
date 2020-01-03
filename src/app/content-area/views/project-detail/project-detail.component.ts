@@ -19,14 +19,13 @@ export class ProjectDetailComponent implements OnInit {
   ngOnInit() {
 	  let that = this;
 	  this.route.paramMap.subscribe(params => {
-		  let board_id = params.get("board_id");
+	  let board_id = params.get("board_id");
       that.persister.set('selectedBoard',board_id);
       that.persister.set('selected_submodules',null);
 		  that.getList(board_id);
       that.selected_board_id    =     parseInt(board_id);
       that.selected_board=that.persister.get('boardsData').find(x=>x.id==that.persister.get('selectedBoard'));
-
-    });
+  });
     
     //console.log(this.selected_board.large_icon)
   }
