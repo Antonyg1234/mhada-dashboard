@@ -8,7 +8,7 @@
         </label>
       </div>
       <div class="co-md-6 ml-2">
-          <strong>Selected Ward : </strong> {{selectedWard}}
+          <strong *ngIf="displayType == 'wardWise'">Selected Ward : </strong> {{selectedWard}}
          <!--<select *ngIf="displayType == 'wardWise'" id="sel-options" class="form-control" (change)="setUrl($event.target.value)" >
           <option *ngFor="let wardData of wardDetails" [value]="wardData.url" [selected]="(selectedWard == wardData.name)?'selected':false">{{wardData.name}}</option>
         </select>-->
