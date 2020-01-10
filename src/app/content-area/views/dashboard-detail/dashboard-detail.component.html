@@ -1,25 +1,25 @@
 <div class="main">
   <div class="container-fluid">
     <app-breadcrumb [selectedProjectId]="selected_project_id" [selected_project]="selected_project"></app-breadcrumb>
-    <div class="row mb-4">
+    <div class="row mb-8">
       <div class="co-md-2 mt-2">
         <label for="sel-options" *ngIf="submodules!=null"><strong>{{selected_module['display_name']}}
             </strong>
         </label>
       </div>
       <div class="co-md-6 ml-2">
-          <strong *ngIf="displayType == 'wardWise'">Selected Ward : </strong> {{selectedWard}}
-         <!--<select *ngIf="displayType == 'wardWise'" id="sel-options" class="form-control" (change)="setUrl($event.target.value)" >
-          <option *ngFor="let wardData of wardDetails" [value]="wardData.url" [selected]="(selectedWard == wardData.name)?'selected':false">{{wardData.name}}</option>
-        </select>-->
+          <strong style="float:left;" *ngIf="displayType == 'wardWise'">Selected Ward : &nbsp;</strong> <!--{{selectedWard}}-->
+             <select  style="float:left;width: 130px;margin-top: -10px;margin-bottom: 10px;"  *ngIf="displayType == 'wardWise'" id="sel-options" class="form-control" (change)="setUrl($event.target.value)" >
+                 <option *ngFor="let wardData of wardDetails" [value]="wardData.url" [selected]="(selectedWard == wardData.name)?'selected':false">{{wardData.name}}</option>
+            </select>
         <!-- <select id="sel-options" class="form-control" (change)="setUrl($event.target.value)" *ngIf="submodules!=null && submodules.data.length>1">
           <option *ngFor="let sub_mod of submodules.data" [value]="sub_mod.url">{{sub_mod.title}}</option>
         </select> -->
-          <ul id="tabsJustified" class="nav nav-tabs" *ngIf="submodules!=null && submodules.data.length>1">
+            <ul style="float:left" id="tabsJustified" class="nav nav-tabs" *ngIf="submodules!=null && submodules.data.length>1">
                 <li *ngFor="let sub_mod of submodules.data; index as i" class="nav-item active" (click)="setUrl(sub_mod.url)"><a href="" data-target="#1" data-toggle="tab" class="nav-link small text-uppercase {{i==0?'active':''}}">{{sub_mod.title}}</a></li>
                 <!-- <li class="nav-item"><a href="" data-target="#2" data-toggle="tab" class="nav-link small text-uppercase active">Profile</a></li>
                 <li class="nav-item"><a href="" data-target="#3" data-toggle="tab" class="nav-link small text-uppercase">Messages</a></li> -->
-          </ul>
+            </ul>
       </div>
       
     </div>

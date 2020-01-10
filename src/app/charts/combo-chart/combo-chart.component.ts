@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { SimpleChanges } from '@angular/core';
 import { DashboardDetail} from '../../content-area/views/project-detail/project-detail.service';
 
 @Component({
@@ -14,13 +15,6 @@ export class ComboChartComponent implements OnInit {
    type = 'ComboChart';
    data:any=[];
    data1:any=[];
-  //  data = [
-  //     ["Previous", 3, 2, 2.5],
-  //     ["current",2, 3, 2.5],
-  //     ["Pears", 1, 5, 3],
-  //     ["Bananas", 3, 9, 6],
-  //     ["Plums", 4, 2, 3]
-  //  ];
    columnNames = ['Bills', 'Expected'];
    columnNames1 = ['Bills', 'Recovered'];   
    options = {   
@@ -38,20 +32,35 @@ export class ComboChartComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-     this.View[0].data.body.forEach(element => {
-        console.log(element)
-        var matches = element.Expected.match(/(\d+)/); 
-        this.data.push([element.Month,parseInt(matches[0])]);
-
-        var matches1 = element.Recovered.match(/(\d+)/); 
-        this.data1.push([element.Month,parseInt(matches1[0])]);
-     });
-      // this.data.push(["Previous",0.00]);
-      // this.data.push(["Current",233438093]);
-      // this.data1.push(["Previous",0.00]);
-      // this.data1.push(["Current",61640]);
-
-      console.log('from combo chart',this.dashboardDetails)
+     this.setData();
   }
+	setData(){
+  	    let setData = [];
+  	    let setData1 = [];
+		if(this.View[0].data.body.length > 0) {
+			this.View[0].data.body.forEach(element => {
+				var matches = element.Expected.match(/(\d+)/);
+				setData.push([element.Month, parseInt(matches[0])]);
+
+				var matches1 = element.Recovered.match(/(\d+)/);
+				setData1.push([element.Month, parseInt(matches1[0])]);
+			});
+		}else{
+			this.data.forEach(function(value, key){
+				setData.push([value[0], 0]);
+			});
+			this.data1.forEach(function(value, key){
+				setData1.push([value[0], 0]);
+			});
+		}
+		this.data   =   setData;
+		this.data1   =   setData1;
+	}
+  ngOnChanges(changes: SimpleChanges) {
+	  console.log('calling setdata');
+	  this.setData();
+		// You can also use categoryId.previousValue and
+		// categoryId.firstChange for comparing old and new values
+	}
 
 }

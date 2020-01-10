@@ -5,13 +5,13 @@ import { PersistanceService } from './../../../services/persistanceService.servi
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { ModalComponent } from '../../../modal/modal.component';
 
-
 @Component({
   selector: 'app-dashboard-detail',
   templateUrl: './dashboard-detail.component.html',
   styleUrls: ['./dashboard-detail.component.css'],
   providers:[ProjectDetailService]
 })
+
 export class DashboardDetailComponent implements OnInit {
   dashboard:DashboardDetail[];
   public dashboard_url;
@@ -39,7 +39,7 @@ export class DashboardDetailComponent implements OnInit {
     this.submodules=this.persister.get('selected_submodules');
     this.selected_module=this.persister.get('selected_submodules');
     this.selected_project=this.dashboard_url['project_name'];
-   }
+  }
 
   ngOnInit() {
     //console.log(this.module_id)
@@ -73,7 +73,7 @@ export class DashboardDetailComponent implements OnInit {
 			        this.wardDetails = dashboard['urls'];
 		        }
 	        }
-	        this.dashboard=dashboard['data']
+	        this.dashboard=dashboard['data'];
 	        this.dashboard_report=dashboard['report']!==null?dashboard['report']:'';
 	        this.view=dashboard['view'];
         }
